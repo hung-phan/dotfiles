@@ -52,10 +52,12 @@ set directory=/tmp
 "----------------------------------------------------------------
 map <c-o> :NERDTreeToggle<CR>
 nmap <leader>w :w!<CR>
-noremap <leader>o O<Esc>
+noremap <leader>o o<Esc>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
 noremap <leader>p "+p
+nnoremap <c-u> :GundoToggle<CR>
+nnoremap <silent> <leader>n :nohlsearch<CR>
 "----------------------------------------------------------------
 " Autocompletion setting
 "----------------------------------------------------------------
@@ -202,18 +204,32 @@ set tags=./tags,tags;/
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<cr>
 "----------------------------------------------------------------
+" Beautify
+"----------------------------------------------------------------
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+"----------------------------------------------------------------
 " Vundle 
 "----------------------------------------------------------------
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'vim-scripts/Gundo'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'einars/js-beautify'
 Bundle 'majutsushi/tagbar.git'
-Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-abolish'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'rkulla/pydiction'
