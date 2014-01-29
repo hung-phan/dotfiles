@@ -111,8 +111,11 @@ otmux() {
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/workarea/lib/google_appengine
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/workarea/lib/google_appengine:/usr/local/nginx/sbin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 . $HOME/.z-master/z.sh
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
