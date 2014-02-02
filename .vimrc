@@ -1,3 +1,4 @@
+set nocompatible
 "----------------------------------------------------------------
 " Text format 
 "----------------------------------------------------------------
@@ -142,7 +143,6 @@ Bundle "Chiel92/vim-autoformat"
 Bundle 'docunext/closetag.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'matze/vim-move'
-Bundle 'einars/js-beautify'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'altercation/solarized'
 Bundle 'Raimondi/delimitMate'
