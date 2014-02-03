@@ -124,4 +124,6 @@ function proxyoff(){
     echo -e "\nProxy environment variable removed."
 } 
 
+. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/bash/powerline.sh #powerline
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -10,10 +10,9 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="muse"
 #ZSH_THEME="sorin"
 #ZSH_THEME="candy"
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 #ZSH_THEME="michelebologna"
 #ZSH_THEME="bira"
-#. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/zsh/powerline.zsh #powerline
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -132,6 +131,7 @@ export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 
 # z command
 . $HOME/.z-master/z.sh
-
+. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/zsh/powerline.zsh #powerline
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
