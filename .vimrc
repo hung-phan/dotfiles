@@ -55,7 +55,6 @@ set directory=/tmp
 "----------------------------------------------------------------
 map <c-o> :NERDTreeToggle<CR>
 nmap <leader>w :w!<CR>
-nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 noremap <leader>d yyp<Esc>
 noremap <leader>y "+y
@@ -79,6 +78,11 @@ function! StripWhitespace ()
     call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace ()<CR>
+" Faster split resizing (+,-)
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+endif
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
