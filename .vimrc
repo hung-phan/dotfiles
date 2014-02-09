@@ -1,6 +1,6 @@
 set nocompatible
 "----------------------------------------------------------------
-" Text format 
+" Text format
 "----------------------------------------------------------------
 set autoindent
 set smartindent
@@ -13,7 +13,7 @@ set virtualedit=all
 set expandtab
 "set tw=80
 "----------------------------------------------------------------
-" General 
+" General
 "----------------------------------------------------------------
 set cf
 set ffs=unix,dos,mac
@@ -21,7 +21,7 @@ set autoread
 set magic
 filetype plugin indent on
 "----------------------------------------------------------------
-" UI 
+" UI
 "----------------------------------------------------------------
 set ruler
 set nolazyredraw
@@ -31,15 +31,17 @@ set mouse=a
 set mousehide
 set report=0
 set wildmenu
+set cursorline "Highligh current line"
+set esckeys " Allow cursor keys in insert mode.
 "----------------------------------------------------------------
-" Searching 
+" Searching
 "----------------------------------------------------------------
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 "----------------------------------------------------------------
-" Backup 
+" Backup
 "----------------------------------------------------------------
 set nobackup
 set nowritebackup
@@ -53,6 +55,8 @@ set directory=/tmp
 "----------------------------------------------------------------
 map <c-o> :NERDTreeToggle<CR>
 nmap <leader>w :w!<CR>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
 noremap <leader>d yyp<Esc>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
@@ -61,13 +65,27 @@ nnoremap < <<
 nnoremap > >>
 nnoremap <c-u> :GundoToggle<CR>
 nnoremap <silent> <leader>n :nohlsearch<CR>
+" Speed up viewport scrolling
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+" Search and replace word under cursor (,*)
+nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
+" Strip trailing whitespace (,ss)
+function! StripWhitespace ()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace ()<CR>
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
 let g:move_key_modifier = 'C'
 "----------------------------------------------------------------
 " Multicursor mode
-"---------------------------------------------------------------- 
+"----------------------------------------------------------------
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
 let g:multi_cursor_next_key='<C-n>'
@@ -133,7 +151,7 @@ nnoremap <c-i> :TagbarToggle<cr>
 "----------------------------------------------------------------
 noremap <F3> :Autoformat<CR><CR>
 "----------------------------------------------------------------
-" Vundle 
+" Vundle
 "----------------------------------------------------------------
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
