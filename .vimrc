@@ -11,6 +11,7 @@ set tabstop=4
 set shiftwidth=4
 set virtualedit=all
 set expandtab
+set nostartofline " Don't reset cursor to start of line when moving around.
 "set tw=80
 "----------------------------------------------------------------
 " General
@@ -19,6 +20,7 @@ set cf
 set ffs=unix,dos,mac
 set autoread
 set magic
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 filetype plugin indent on
 "----------------------------------------------------------------
 " UI
@@ -83,6 +85,7 @@ if bufwinnr(1)
   map + <C-W>+
   map - <C-W>-
 endif
+noremap <leader>W :w !sudo tee %<CR>
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------

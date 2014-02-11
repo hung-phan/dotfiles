@@ -10,7 +10,7 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="muse"
 #ZSH_THEME="sorin"
 #ZSH_THEME="candy"
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 #ZSH_THEME="michelebologna"
 #ZSH_THEME="bira"
 
@@ -112,8 +112,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:~/workarea/lib/google_appengine"
+ANDROID_SDK="~/workarea/tool/android-sdk-linux/tools:~/workarea/tool/android-sdk-linux/platforms"
+GOOGLE_APPENGINE="~/workarea/tool/google_appengine"
+export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:${GOOGLE_APPENGINE}:${ANDROID_SDK}:/usr/local/nginx/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -131,7 +132,8 @@ export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 
 # z command
 . $HOME/.z-master/z.sh
-. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/zsh/powerline.zsh #powerline
+#. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/zsh/powerline.zsh #powerline
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
