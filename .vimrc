@@ -66,11 +66,14 @@ nnoremap < <<
 nnoremap > >>
 nnoremap <c-u> :GundoToggle<CR>
 nnoremap <silent> <leader>n :nohlsearch<CR>
+
 " Speed up viewport scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
+
 " Search and replace word under cursor (,*)
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
+
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
     let save_cursor = getpos(".")
@@ -80,12 +83,25 @@ function! StripWhitespace ()
     call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace ()<CR>
+
 " Faster split resizing (+,-)
 if bufwinnr(1)
   map + <C-W>+
   map - <C-W>-
 endif
 noremap <leader>W :w !sudo tee %<CR>
+
+" My balloon
+function! SyntaxBalloon()
+    let synID   = synID(v:beval_lnum, v:beval_col, 0)
+    let groupID = synIDtrans(synID)
+    let name    = synIDattr(synID, "name")
+    let group   = synIDattr(groupID, "name")
+    return name . "\n" . group
+endfunction
+
+set balloonexpr=SyntaxBalloon()
+set ballooneval
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
@@ -158,31 +174,38 @@ nnoremap <c-i> :TagbarToggle<cr>
 "----------------------------------------------------------------
 noremap <F3> :Autoformat<CR><CR>
 "----------------------------------------------------------------
+" Numbers
+"----------------------------------------------------------------
+nnoremap <F3> :NumbersToggle<CR>
+"----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'vim-scripts/Gundo'
-Bundle "Chiel92/vim-autoformat"
+Bundle 'myusuf3/numbers.vim'
+Bundle 'Chiel92/vim-autoformat'
 Bundle 'docunext/closetag.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'matze/vim-move'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'altercation/solarized'
 Bundle 'Raimondi/delimitMate'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'kevinw/pyflakes-vim.git'
+Bundle 'rkulla/pydiction'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/Gundo'
+Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-surround'
-Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'rkulla/pydiction'
-Bundle 'kevinw/pyflakes-vim.git'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'gmarik/vundle'
