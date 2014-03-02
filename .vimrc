@@ -1,26 +1,45 @@
 set nocompatible
+let mapleader="," " change leader
 "----------------------------------------------------------------
 " Text format
 "----------------------------------------------------------------
 set autoindent
+set cindent
 set smartindent
 set smarttab
 set nowrap
-set encoding=utf-8
+set encoding=utf-8 nobomb
 set tabstop=4
 set shiftwidth=4
 set virtualedit=all
 set expandtab
+set diffopt=filler " Add vertical spaces to keep right and left aligned
+set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
+set formatoptions=
+set formatoptions+=c " Format comments
+set formatoptions+=r " Continue comments by default
+set formatoptions+=o " Make comment when using o or O from comment line
+set formatoptions+=q " Format comments with gq
+set formatoptions+=n " Recognize numbered lists
+set formatoptions+=2 " Use indent from 2nd line of a paragraph
+set formatoptions+=l " Don't break lines that are already long
+set formatoptions+=1 " Break before 1-letter words
 set nostartofline " Don't reset cursor to start of line when moving around.
-"set tw=80
+set wrapscan " Searches wrap around end of file
 "----------------------------------------------------------------
 " General
 "----------------------------------------------------------------
 set cf
+set hidden
 set ffs=unix,dos,mac
 set autoread
 set magic
+set wildmode=list:longest " Complete only until point of ambiguity.
+set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
+set ttyfast " Send more characters at a given time.
+set ttymouse=xterm " Set mouse type to xterm.
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
+set ofu=syntaxcomplete#Complete " Set omni-completion method.
 filetype plugin indent on
 "----------------------------------------------------------------
 " UI
@@ -31,10 +50,15 @@ set backspace=indent,eol,start
 set number
 set mouse=a
 set mousehide
+set laststatus=2
 set report=0
 set wildmenu
+set wildmode=list:longest " Complete only until point of ambiguity.
 set cursorline "Highligh current line"
 set esckeys " Allow cursor keys in insert mode.
+set visualbell " Use visual bell instead of audible bell (annnnnoying)
+"set showtabline=2 " Always show tab bar.
+set title
 "----------------------------------------------------------------
 " Searching
 "----------------------------------------------------------------
@@ -61,12 +85,14 @@ nmap <CR> o<Esc>
 noremap <leader>d yyp<Esc>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
-noremap <leader>p "+p
+noremap <leader>p "+P
 nnoremap < <<
 nnoremap > >>
-nnoremap <c-u> :GundoToggle<CR>
+nnoremap <c-g> :GundoToggle<CR>
 nnoremap <silent> <leader>n :nohlsearch<CR>
-
+inoremap <C-e> <C-o>$
+inoremap <C-f> <C-o>^
+inoremap <C-g> <C-o>dw
 " Speed up viewport scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -102,6 +128,42 @@ endfunction
 
 set balloonexpr=SyntaxBalloon()
 set ballooneval
+
+" Toggle show tabs and trailing spaces (,c)
+set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
+set fcs=fold:-
+nnoremap <silent> <leader>t :set nolist!<CR>
+
+map <PageUp> <C-U>
+map <PageDown> <C-D>
+imap <PageUp> <C-O><C-U>
+imap <PageDown> <C-O><C-D>
+
+set relativenumber " Use relative line numbers. Current line is still in status bar.
+au BufReadPost,BufNewFile * set relativenumber
+
+" Auto close scratch preview window
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"----------------------------------------------------------------
+" Syntax completion
+"----------------------------------------------------------------
+" JSON
+au BufRead,BufNewFile *.json set ft=json syntax=javascript
+" Jade
+au BufRead,BufNewFile *.jade set ft=jade syntax=jade
+" Common Ruby files
+au BufRead,BufNewFile Rakefile,Capfile,Gemfile,.autotest,.irbrc,*.treetop,*.tt set ft=ruby syntax=ruby
+" Nu
+au BufNewFile,BufRead *.nu,*.nujson,Nukefile setf nu
+" Coffee Folding
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+" ZSH
+au BufRead,BufNewFile .zsh_rc,.functions,.commonrc set ft=zsh
+"----------------------------------------------------------------
+" Ultisnips trigger
+"----------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<c-l>"
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
@@ -170,20 +232,42 @@ set tags=./tags,tags;/
 let g:tagbar_usearrows = 1
 nnoremap <c-i> :TagbarToggle<cr>
 "----------------------------------------------------------------
+" javascript library completion
+"----------------------------------------------------------------
+let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,requirejs,jasmine,sugar,prelude'
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_requirejs= 1
+autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_sugar = 1
+"----------------------------------------------------------------
 " Beautify
 "----------------------------------------------------------------
 noremap <F3> :Autoformat<CR><CR>
 "----------------------------------------------------------------
+" Tabularize
+"----------------------------------------------------------------
+nnoremap <Leader>e :Tabularize /=<CR>
+vmap <Leader>e :Tabularize /=<CR>
+nnoremap <Leader>c :Tabularize /:\zs<CR>
+vmap <Leader>c :Tabularize /:\zs<CR>
+"----------------------------------------------------------------
 " Numbers
 "----------------------------------------------------------------
-nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F4> :NumbersToggle<CR>
 "----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'SirVer/ultisnips'
+Bundle 'godlygeek/tabular'
+Bundle 'marijnh/tern_for_vim'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'docunext/closetag.vim'
 Bundle 'terryma/vim-multiple-cursors'
@@ -203,6 +287,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
