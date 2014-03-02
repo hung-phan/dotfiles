@@ -249,10 +249,10 @@ noremap <F3> :Autoformat<CR><CR>
 "----------------------------------------------------------------
 " Tabularize
 "----------------------------------------------------------------
-nnoremap <Leader>e :Tabularize /=<CR>
-vmap <Leader>e :Tabularize /=<CR>
-nnoremap <Leader>c :Tabularize /:\zs<CR>
-vmap <Leader>c :Tabularize /:\zs<CR>
+nnoremap <Leader>= :Tabularize /=<CR>
+vmap <Leader>= :Tabularize /=<CR>
+nnoremap <Leader>: :Tabularize /:\zs<CR>
+vmap <Leader>: :Tabularize /:\zs<CR>
 "----------------------------------------------------------------
 " Numbers
 "----------------------------------------------------------------
