@@ -34,7 +34,6 @@ set hidden
 set ffs=unix,dos,mac
 set autoread
 set magic
-set wildmode=list:longest " Complete only until point of ambiguity.
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
@@ -53,7 +52,7 @@ set mousehide
 set laststatus=2
 set report=0
 set wildmenu
-set wildmode=list:longest " Complete only until point of ambiguity.
+set wildmode=full
 set cursorline "Highligh current line"
 set esckeys " Allow cursor keys in insert mode.
 set visualbell " Use visual bell instead of audible bell (annnnnoying)
@@ -254,6 +253,12 @@ vmap <Leader>= :Tabularize /=<CR>
 nnoremap <Leader>: :Tabularize /:\zs<CR>
 vmap <Leader>: :Tabularize /:\zs<CR>
 "----------------------------------------------------------------
+" Indents guide
+"----------------------------------------------------------------
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
+"----------------------------------------------------------------
 " Numbers
 "----------------------------------------------------------------
 nnoremap <F4> :NumbersToggle<CR>
@@ -265,12 +270,15 @@ call vundle#rc()
 
 Bundle 'SirVer/ultisnips'
 Bundle 'godlygeek/tabular'
+Bundle 'edsono/vim-matchit'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'docunext/closetag.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'jlanzarotta/bufexplorer'
 Bundle 'matze/vim-move'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'altercation/solarized'
