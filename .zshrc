@@ -106,14 +106,18 @@ single_monitor() {
 otmux() {
     tmux -2
 }
+# stop apache
+apache_off() {
+   sudo /etc/init.d/apache2 stop 
+}
 
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-ANDROID_SDK="~/workarea/tool/android-sdk-linux/tools:~/workarea/tool/android-sdk-linux/platforms"
-GOOGLE_APPENGINE="~/workarea/tool/google_appengine"
+ANDROID_SDK="/home/colorvisa/workarea/tool/android-sdk-linux/tools:/home/colorvisa/workarea/tool/android-sdk-linux/platform-tools:/home/colorvisa/workarea/tool/android-sdk-linux/build-tools"
+GOOGLE_APPENGINE="/home/colorvisa/workarea/tool/google_appengine"
 export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:${GOOGLE_APPENGINE}:${ANDROID_SDK}:/usr/local/nginx/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 

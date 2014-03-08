@@ -269,6 +269,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'SirVer/ultisnips'
+Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'godlygeek/tabular'
 Bundle 'edsono/vim-matchit'
 Bundle 'marijnh/tern_for_vim'
