@@ -80,6 +80,7 @@ set directory=/tmp
 "----------------------------------------------------------------
 map <c-o> :NERDTreeToggle<CR>
 nmap <leader>w :w!<CR>
+nmap <leader>q :q<CR>
 nmap <CR> o<Esc>
 noremap <leader>d yyp<Esc>
 noremap <leader>y "+y
@@ -242,6 +243,12 @@ autocmd BufReadPre *.js let b:javascript_lib_use_requirejs= 1
 autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_sugar = 1
 "----------------------------------------------------------------
+" Ruby code autocomplete
+"----------------------------------------------------------------
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+"----------------------------------------------------------------
 " Beautify
 "----------------------------------------------------------------
 noremap <F3> :Autoformat<CR><CR>
@@ -289,6 +296,7 @@ Bundle 'kevinw/pyflakes-vim.git'
 Bundle 'rkulla/pydiction'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
 Bundle 'tpope/vim-rails'
@@ -298,6 +306,8 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-cucumber'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
