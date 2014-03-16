@@ -40,6 +40,7 @@ set ttymouse=xterm " Set mouse type to xterm.
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set ofu=syntaxcomplete#Complete " Set omni-completion method.
 filetype plugin indent on
+syntax enable
 "----------------------------------------------------------------
 " UI
 "----------------------------------------------------------------
@@ -79,6 +80,7 @@ set directory=/tmp
 " command mode
 "----------------------------------------------------------------
 map <c-o> :NERDTreeToggle<CR>
+imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
 nmap <CR> o<Esc>
@@ -184,7 +186,6 @@ set t_Co=256
 "----------------------------------------------------------------
 " Theme
 "----------------------------------------------------------------
-syntax enable
 set background=dark
 set term=xterm-256color
 let g:solarized_termtrans=1
@@ -270,11 +271,27 @@ let g:indent_guides_guide_size = 1
 "----------------------------------------------------------------
 nnoremap <F4> :NumbersToggle<CR>
 "----------------------------------------------------------------
+" Vim markdown
+"----------------------------------------------------------------
+let g:vim_markdown_folding_disabled=1
+"----------------------------------------------------------------
+" Unite
+"----------------------------------------------------------------
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_file_rec_max_cache_files = 0
+call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
+            \ 'max_candidates', 0)
+nnoremap <space>y :Unite history/yank<CR>
+nnoremap <c-p> :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<CR>
+nnoremap <space>/ :Unite -no-split grep:.<CR>
+nnoremap <space>s :Unite -no-split -quick-match buffer<CR>
+"----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'plasticboy/vim-markdown'
 Bundle 'SirVer/ultisnips'
 Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'godlygeek/tabular'
@@ -295,10 +312,11 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kevinw/pyflakes-vim.git'
 Bundle 'rkulla/pydiction'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'kien/ctrlp.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
