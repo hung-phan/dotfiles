@@ -303,7 +303,7 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'docunext/closetag.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'jlanzarotta/bufexplorer'
+"Bundle 'jlanzarotta/bufexplorer' "Using unite.vim function replace
 Bundle 'matze/vim-move'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'altercation/solarized'
