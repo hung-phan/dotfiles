@@ -111,6 +111,8 @@ apache_off() {
    sudo /etc/init.d/apache2 stop 
 }
 
+alias subl='/home/colorvisa/Editor/Sublime\ Text\ 2/sublime_text'
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
