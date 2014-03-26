@@ -83,11 +83,15 @@ map <c-o> :NERDTreeToggle<CR>
 imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
+nmap <leader>[ :tabn<CR>
+nmap <leader>] :tabp<CR>
+nmap <leader><space> :tabnew<CR>
 nmap <CR> o<Esc>
 noremap <leader>d yyp<Esc>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
 noremap <leader>p "+P
+noremap <leader>f gg=G
 nnoremap < <<
 nnoremap > >>
 nnoremap <c-g> :GundoToggle<CR>
@@ -267,6 +271,10 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
 "----------------------------------------------------------------
+" Ragtag
+"----------------------------------------------------------------
+let g:ragtag_global_maps = 1
+"----------------------------------------------------------------
 " Numbers
 "----------------------------------------------------------------
 nnoremap <F4> :NumbersToggle<CR>
@@ -309,7 +317,7 @@ Bundle 'majutsushi/tagbar.git'
 Bundle 'altercation/solarized'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'kevinw/pyflakes-vim.git'
+"Bundle 'kevinw/pyflakes-vim.git'
 Bundle 'rkulla/pydiction'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
@@ -326,6 +334,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-ragtag'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
