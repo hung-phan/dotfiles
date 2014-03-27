@@ -59,6 +59,9 @@ set esckeys " Allow cursor keys in insert mode.
 set visualbell " Use visual bell instead of audible bell (annnnnoying)
 "set showtabline=2 " Always show tab bar.
 set title
+hi TabLine      guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+hi TabLineSel   guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
+hi TabLineFill  guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
 "----------------------------------------------------------------
 " Searching
 "----------------------------------------------------------------
@@ -79,14 +82,17 @@ set directory=/tmp
 "----------------------------------------------------------------
 " command mode
 "----------------------------------------------------------------
-map <c-o> :NERDTreeToggle<CR>
+"map <c-o> :NERDTreeToggle<CR>
+map <c-o> :NERDTreeTabsToggle<CR>
 imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
+"tab controler
 nmap <leader>[ :tabn<CR>
 nmap <leader>] :tabp<CR>
 nmap <leader><space> :tabnew<CR>
 nmap <CR> o<Esc>
+"copy key binding
 noremap <leader>d yyp<Esc>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
@@ -99,6 +105,8 @@ nnoremap <silent> <leader>n :nohlsearch<CR>
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>^
 inoremap <C-g> <C-o>dw
+inoremap <C-g> <C-o>dw
+inoremap <C-h> <C-o>x
 " Speed up viewport scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -250,7 +258,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_sugar = 1
 "----------------------------------------------------------------
 " Ruby code autocomplete
 "----------------------------------------------------------------
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 "----------------------------------------------------------------
@@ -301,6 +309,7 @@ call vundle#rc()
 
 Bundle 'plasticboy/vim-markdown'
 Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'godlygeek/tabular'
 Bundle 'edsono/vim-matchit'
@@ -317,11 +326,11 @@ Bundle 'majutsushi/tagbar.git'
 Bundle 'altercation/solarized'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kien/rainbow_parentheses.vim'
-"Bundle 'kevinw/pyflakes-vim.git'
 Bundle 'rkulla/pydiction'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'vim-scripts/Gundo'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
