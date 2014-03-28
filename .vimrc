@@ -101,16 +101,15 @@ noremap <leader>f gg=G
 nnoremap < <<
 nnoremap > >>
 nnoremap <c-g> :GundoToggle<CR>
-nnoremap <silent> <leader>n :nohlsearch<CR>
+nnoremap <silent> <leader>m :nohlsearch<CR>
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>^
 inoremap <C-g> <C-o>dw
 inoremap <C-g> <C-o>dw
 inoremap <C-h> <C-o>x
 " Speed up viewport scrolling
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
+nnoremap <C-e> 4<C-e>
+nnoremap <C-y> 4<C-y>
 " Search and replace word under cursor (,*)
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
 
@@ -174,6 +173,16 @@ au BufNewFile,BufRead *.nu,*.nujson,Nukefile setf nu
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 " ZSH
 au BufRead,BufNewFile .zsh_rc,.functions,.commonrc set ft=zsh
+"----------------------------------------------------------------
+" easymotion
+"----------------------------------------------------------------
+nmap <leader><leader>s <Plug>(easymotion-s2)
+nmap <leader><leader>t <Plug>(easymotion-t2)
+map  <leader>/ <Plug>(easymotion-sn)
+omap <leader>/ <Plug>(easymotion-tn)
+map  <leader><leader>n <Plug>(easymotion-next)
+map  <leader><leader>N <Plug>(easymotion-prev)
+let g:EasyMotion_smartcase = 1
 "----------------------------------------------------------------
 " Ultisnips trigger
 "----------------------------------------------------------------
