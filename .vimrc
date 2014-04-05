@@ -88,8 +88,8 @@ imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
 "tab controler
-nmap <leader>[ :tabn<CR>
-nmap <leader>] :tabp<CR>
+nmap <space>[ :tabn<CR>
+nmap <space>] :tabp<CR>
 nmap <leader><space> :tabnew<CR>
 nmap <CR> o<Esc>
 "copy key binding
@@ -104,7 +104,6 @@ nnoremap <c-g> :GundoToggle<CR>
 nnoremap <silent> <leader>m :nohlsearch<CR>
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>^
-inoremap <C-g> <C-o>dw
 inoremap <C-g> <C-o>dw
 inoremap <C-h> <C-o>x
 " Speed up viewport scrolling
@@ -147,6 +146,9 @@ set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>t :set nolist!<CR>
 
+" highlight last inserted text
+nnoremap gV `[v`]
+
 map <PageUp> <C-U>
 map <PageDown> <C-D>
 imap <PageUp> <C-O><C-U>
@@ -174,6 +176,17 @@ au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 " ZSH
 au BufRead,BufNewFile .zsh_rc,.functions,.commonrc set ft=zsh
 "----------------------------------------------------------------
+" Tmux config
+"----------------------------------------------------------------
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+"----------------------------------------------------------------
 " easymotion
 "----------------------------------------------------------------
 nmap <leader><leader>s <Plug>(easymotion-s2)
@@ -183,10 +196,17 @@ omap <leader>/ <Plug>(easymotion-tn)
 map  <leader><leader>n <Plug>(easymotion-next)
 map  <leader><leader>N <Plug>(easymotion-prev)
 let g:EasyMotion_smartcase = 1
+" easy-motion color
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Normal
 "----------------------------------------------------------------
 " Ultisnips trigger
 "----------------------------------------------------------------
 let g:UltiSnipsExpandTrigger="<c-l>"
+"----------------------------------------------------------------
+" Syntastic
+"----------------------------------------------------------------
+let g:syntastic_c_checkers=["make","splint"]
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
@@ -209,6 +229,7 @@ set t_Co=256
 "----------------------------------------------------------------
 set background=dark
 set term=xterm-256color
+" solarized
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
@@ -300,6 +321,14 @@ nnoremap <F4> :NumbersToggle<CR>
 "----------------------------------------------------------------
 let g:vim_markdown_folding_disabled=1
 "----------------------------------------------------------------
+" Powerline
+"----------------------------------------------------------------
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+"----------------------------------------------------------------
 " Unite
 "----------------------------------------------------------------
 let g:unite_source_history_yank_enable = 1
@@ -309,7 +338,7 @@ call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
 nnoremap <space>y :Unite history/yank<CR>
 nnoremap <c-p> :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<CR>
 nnoremap <space>/ :Unite -no-split grep:.<CR>
-nnoremap <space>s :Unite -no-split -quick-match buffer<CR>
+nnoremap <space>b :Unite -no-split -quick-match buffer<CR>
 "----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
@@ -329,7 +358,7 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'docunext/closetag.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'terryma/vim-multiple-cursors'
-"Bundle 'jlanzarotta/bufexplorer' "Using unite.vim function replace
+Bundle 'rhysd/clever-f.vim'
 Bundle 'matze/vim-move'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'altercation/solarized'
@@ -341,6 +370,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'vim-scripts/Gundo'
+Bundle 'bling/vim-airline'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'tpope/vim-rails'
@@ -353,9 +383,9 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'gmarik/vundle'
