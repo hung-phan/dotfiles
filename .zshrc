@@ -44,7 +44,7 @@ ZSH_THEME="robbyrussell"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -87,7 +87,7 @@ proxy_off() {
     unset https_proxy
     unset ftp_proxy
     echo -e "\nProxy environment variable removed."
-} 
+}
 # download server
 aria_download() {
     cd $HOME/Downloads
@@ -108,7 +108,7 @@ otmux() {
 }
 # stop apache
 apache_off() {
-   sudo /etc/init.d/apache2 stop 
+   sudo /etc/init.d/apache2 stop
 }
 
 alias subl='/home/colorvisa/Editor/Sublime\ Text\ 2/sublime_text'
@@ -135,6 +135,7 @@ export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+source '/home/colorvisa/.ssh/environment'
 
 # z command
 . $HOME/.z-master/z.sh

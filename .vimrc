@@ -84,6 +84,7 @@ set directory=/tmp
 "----------------------------------------------------------------
 "map <c-o> :NERDTreeToggle<CR>
 map <c-o> :NERDTreeTabsToggle<CR>
+map <c-l> :edit<CR>
 imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
@@ -145,9 +146,6 @@ set ballooneval
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>t :set nolist!<CR>
-
-" highlight last inserted text
-nnoremap gV `[v`]
 
 map <PageUp> <C-U>
 map <PageDown> <C-D>
