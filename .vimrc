@@ -89,8 +89,8 @@ imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
 "tab controler
-nmap <space>[ :tabn<CR>
-nmap <space>] :tabp<CR>
+nmap <space>] :tabn<CR>
+nmap <space>[ :tabp<CR>
 nmap <leader><space> :tabnew<CR>
 nmap <CR> o<Esc>
 "copy key binding
@@ -197,6 +197,10 @@ let g:EasyMotion_smartcase = 1
 " easy-motion color
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Normal
+"----------------------------------------------------------------
+" Emmet
+"----------------------------------------------------------------
+let g:user_emmet_leader_key='<C-z>'
 "----------------------------------------------------------------
 " Ultisnips trigger
 "----------------------------------------------------------------
@@ -343,6 +347,7 @@ nnoremap <space>b :Unite -no-split -quick-match buffer<CR>
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'mattn/emmet-vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
@@ -352,6 +357,7 @@ Bundle 'edsono/vim-matchit'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
+"Bundle 'pangloss/vim-javascript'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'docunext/closetag.vim'
 Bundle 'nathanaelkane/vim-indent-guides'

@@ -113,7 +113,7 @@ apache_off() {
 
 alias subl='/home/colorvisa/Editor/Sublime\ Text\ 2/sublime_text'
 
-plugins=(git)
+plugins=(rails git ruby)
 
 source $ZSH/oh-my-zsh.sh
 
