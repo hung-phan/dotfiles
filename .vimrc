@@ -84,7 +84,6 @@ set directory=/tmp
 "----------------------------------------------------------------
 "map <c-o> :NERDTreeToggle<CR>
 map <c-o> :NERDTreeTabsToggle<CR>
-map <c-l> :edit<CR>
 imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
@@ -112,6 +111,11 @@ nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
 " Search and replace word under cursor (,*)
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
@@ -348,6 +352,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'mattn/emmet-vim'
+Bundle 'gregsexton/MatchTag'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
