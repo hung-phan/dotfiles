@@ -60,7 +60,6 @@ squid_proxy_on() {
     export ftp_proxy="ftp://127.0.0.1:3128/"
     export socks_proxy="socks://127.0.0.1:3128/"
 }
-
 switch_home() {
    sudo cp /etc/squid3/home/squid.conf /etc/squid3/squid.conf
    sudo service squid3 restart
@@ -87,6 +86,14 @@ proxy_off() {
     unset https_proxy
     unset ftp_proxy
     echo -e "\nProxy environment variable removed."
+}
+# lazy as fuck for git
+gitpush() {
+    local message=''
+    vared -p "Message to commit: " message
+    git add .
+    git commit -m "$message"
+    git push
 }
 # download server
 aria_download() {
