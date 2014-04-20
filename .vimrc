@@ -116,6 +116,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Index ctags from any project, including those outside Rails
+map <Leader>ct :!ctags -R .<CR>
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
@@ -216,7 +218,7 @@ let g:syntastic_c_checkers=["make","splint"]
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
-let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'S'
 "----------------------------------------------------------------
 " Multicursor mode
 "----------------------------------------------------------------
