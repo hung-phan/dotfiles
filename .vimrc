@@ -116,6 +116,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" remove gap between line quickly
+nnoremap <S-l> <S-j>
+
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
 
