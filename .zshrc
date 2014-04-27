@@ -143,7 +143,7 @@ export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 source '/home/colorvisa/.ssh/environment'
-
+source ~/.bin/tmuxinator.zsh
 # z command
 . $HOME/.z-master/z.sh
 #. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/zsh/powerline.zsh #powerline
@@ -151,3 +151,10 @@ source '/home/colorvisa/.ssh/environment'
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export EDITOR='vim'
+
+# set tmux as default when open zsh
+if [[ ! -n $TMUX ]]; then
+    #open tmux
+    otmux
+fi
