@@ -88,12 +88,19 @@ proxy_off() {
     echo -e "\nProxy environment variable removed."
 }
 # lazy as fuck for git
-gitpush() {
+glpush() {
     local message=''
     vared -p "Message to commit: " message
     git add .
     git commit -m "$message"
     git push
+}
+glpull() {
+    local message=''
+    vared -p "Message to commit: " message
+    git add .
+    git commit -m "$message"
+    git pull
 }
 # download server
 aria_download() {
