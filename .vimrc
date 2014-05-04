@@ -106,6 +106,7 @@ inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>^
 inoremap <C-g> <C-o>dw
 inoremap <C-h> <C-o>x
+inoremap <C-b> <C-a>
 " Speed up viewport scrolling
 nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
