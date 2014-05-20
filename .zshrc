@@ -51,6 +51,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source '/home/colorvisa/.ssh/environment'
 
 # User configuration
 #
@@ -92,14 +93,14 @@ proxy_off() {
 glpush() {
     local message=''
     vared -p "Message to commit: " message
-    git add .
+    git add -A
     git commit -m "$message"
     git push
 }
 glpull() {
     local message=''
     vared -p "Message to commit: " message
-    git add .
+    git add -A
     git commit -m "$message"
     git pull
 }
