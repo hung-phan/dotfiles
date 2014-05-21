@@ -278,7 +278,7 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
+    awful.key({ modkey            }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
@@ -447,9 +447,18 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- {{{ Custom function when wm start
-awful.util.spawn_with_shell("wicd-gtk")
-awful.util.spawn_with_shell("mpd")
-awful.util.spawn_with_shell("volwheel")
-awful.util.spawn_with_shell("xfce4-power-manager")
-awful.util.spawn_with_shell("dropboxd")
+function run_once(cmd)
+  findme = cmd
+  firstspace = cmd:find(" ")
+  if firstspace then
+     findme = cmd:sub(0, firstspace-1)
+  end
+  awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+end
+
+run_once("wicd-gtk")
+run_once("mpd")
+run_once("volwheel")
+run_once("xfce4-power-manager")
+run_once("dropboxd")
 -- }}}
