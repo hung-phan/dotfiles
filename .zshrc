@@ -131,6 +131,7 @@ apache_off() {
 alias subl='/home/colorvisa/Editor/Sublime\ Text\ 2/sublime_text'
 # multiplex
 alias tmux="tmux -2"
+source '/home/colorvisa/.ssh/environment'
 # z command
 . $HOME/.z-master/z.sh
 
@@ -152,6 +153,10 @@ export PATH="/home/colorvisa/.gem/ruby/2.1.0/bin:/usr/local/bin:/home/colorvisa/
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-source '/home/colorvisa/.ssh/environment'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# set tmux as default
+if [[ ! -n $TMUX ]]; then
+    tmux
+fi
