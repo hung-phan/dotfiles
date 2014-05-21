@@ -262,16 +262,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     -- ALSA volume control
-    awful.key({ altkey }, "Up",
-        function ()
-            awful.util.spawn("amixer -q set Master 1%+")
-            volumewidget.update()
-        end),
-    awful.key({ altkey }, "Down",
-        function ()
-            awful.util.spawn("amixer -q set Master 1%-")
-            volumewidget.update()
-        end),
+    awful.key({ altkey            }, "Up",    function () awful.util.spawn("amixer -q set Master 1%+") end),
+    awful.key({ altkey            }, "Down",  function () awful.util.spawn("amixer -q set Master 1%-") end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
