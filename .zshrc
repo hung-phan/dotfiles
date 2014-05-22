@@ -131,6 +131,9 @@ apache_off() {
 alias subl='/home/colorvisa/Editor/Sublime\ Text\ 2/sublime_text'
 # multiplex
 alias tmux="tmux -2"
+alias restart="sudo shutdown -r now"
+alias shutdown="sudo shutdown now"
+
 source '/home/colorvisa/.ssh/environment'
 # z command
 . $HOME/.z-master/z.sh
