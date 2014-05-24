@@ -62,14 +62,6 @@ squid_proxy_on() {
     export ftp_proxy="ftp://127.0.0.1:3128/"
     export socks_proxy="socks://127.0.0.1:3128/"
 }
-switch_home() {
-   sudo cp /etc/squid3/home/squid.conf /etc/squid3/squid.conf
-   sudo service squid3 restart
-}
-switch_rmit() {
-    sudo cp /etc/squid3/rmit/squid.conf /etc/squid3/squid.conf
-    sudo service squid3 restart
-}
 proxy_on() {
     local username=''
     local password=''
