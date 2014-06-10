@@ -1,4 +1,5 @@
 set nocompatible
+filetype off " required
 let mapleader="," " change leader
 "----------------------------------------------------------------
 " Text format
@@ -39,7 +40,6 @@ set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set ofu=syntaxcomplete#Complete " Set omni-completion method.
-filetype plugin indent on
 syntax enable
 "----------------------------------------------------------------
 " UI
@@ -82,8 +82,8 @@ set directory=/tmp
 "----------------------------------------------------------------
 " command mode
 "----------------------------------------------------------------
-"map <c-o> :NERDTreeToggle<CR>
-map <c-o> :NERDTreeTabsToggle<CR>
+map <c-o> :NERDTreeToggle<CR>
+"map <c-o> :NERDTreeTabsToggle<CR>
 imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
@@ -97,11 +97,15 @@ noremap <leader>d yyp<Esc>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
 noremap <leader>p "+P
+"formatting
 noremap <leader>f gg=G
 nnoremap < <<
 nnoremap > >>
+"file history
 nnoremap <c-g> :GundoToggle<CR>
+"clear search hightlight
 nnoremap <silent> <leader>m :nohlsearch<CR>
+"fast jumping for edit
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>^
 inoremap <C-g> <C-o>dw
@@ -138,25 +142,15 @@ if bufwinnr(1)
   map + <C-W>+
   map - <C-W>-
 endif
+"force to write file
 noremap <leader>W :w !sudo tee %<CR>
-
-" My balloon
-function! SyntaxBalloon()
-    let synID   = synID(v:beval_lnum, v:beval_col, 0)
-    let groupID = synIDtrans(synID)
-    let name    = synIDattr(synID, "name")
-    let group   = synIDattr(groupID, "name")
-    return name . "\n" . group
-endfunction
-
-set balloonexpr=SyntaxBalloon()
-set ballooneval
 
 " Toggle show tabs and trailing spaces (,c)
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
 nnoremap <silent> <leader>t :set nolist!<CR>
 
+"map key for page
 map <PageUp> <C-U>
 map <PageDown> <C-D>
 imap <PageUp> <C-O><C-U>
@@ -219,6 +213,12 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 " Syntastic
 "----------------------------------------------------------------
 let g:syntastic_c_checkers=["make","splint"]
+let g:syntastic_python_checkers=['frosted']
+let g:syntastic_javascript_checkers=['jslint']
+let g:syntastic_sh_checkers=['sh']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_loc_list_height=5
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
@@ -315,11 +315,9 @@ vmap <Leader>= :Tabularize /=<CR>
 nnoremap <Leader>: :Tabularize /:\zs<CR>
 vmap <Leader>: :Tabularize /:\zs<CR>
 "----------------------------------------------------------------
-" Indents guide
+" Extradite split size
 "----------------------------------------------------------------
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-
+let g:extradite_width = 84
 "----------------------------------------------------------------
 " Ragtag
 "----------------------------------------------------------------
@@ -343,6 +341,8 @@ let g:airline#extensions#tabline#enabled = 1
 "----------------------------------------------------------------
 " Unite
 "----------------------------------------------------------------
+let g:unite_source_grep_command='ag'
+let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4'
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_rec_max_cache_files = 0
 call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
@@ -354,12 +354,20 @@ nnoremap <space>b :Unite -no-split -quick-match buffer<CR>
 "----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
 
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Other bundles
 Bundle 'mattn/emmet-vim'
+Bundle 'int3/vim-extradite'
 Bundle 'gregsexton/MatchTag'
-Bundle 'plasticboy/vim-markdown'
+Bundle 'sheerun/vim-polyglot'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'jmcantrell/vim-virtualenv'
@@ -368,10 +376,10 @@ Bundle 'edsono/vim-matchit'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
-"Bundle 'pangloss/vim-javascript'
+"Bundle 'rking/ag.vim'
 Bundle 'Chiel92/vim-autoformat'
+Bundle 'mxw/vim-jsx'
 Bundle 'docunext/closetag.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'rhysd/clever-f.vim'
 Bundle 'matze/vim-move'
@@ -382,14 +390,12 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'rkulla/pydiction'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'vim-scripts/Gundo'
 Bundle 'bling/vim-airline'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-abolish'
@@ -397,7 +403,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdcommenter'
@@ -405,3 +410,18 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'gmarik/vundle'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
