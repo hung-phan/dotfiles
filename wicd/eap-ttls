@@ -1,0 +1,17 @@
+name = EAP-TTLS
+author = Enno Groeper
+version = 1
+require identity *Identity anonymous_identity *Anonymous_Identity proto *Protocol pairwise *Encryption password *Password
+-----
+ctrl_interface=/var/run/wpa_supplicant
+network={
+   ssid="$_ESSID"
+   key_mgmt=WPA-EAP
+   pairwise=$_PAIRWISE
+   eap=TTLS
+   proto=$_PROTO
+   identity="$_IDENTITY"
+   anonymous_identity="$_ANONYMOUS_IDENTITY"
+   password="$_PASSWORD"
+   phase2="auth=PAP"
+}

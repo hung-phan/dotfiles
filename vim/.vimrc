@@ -82,18 +82,17 @@ set directory=/tmp
 "----------------------------------------------------------------
 " command mode
 "----------------------------------------------------------------
-map <c-o> :NERDTreeToggle<CR>
-"map <c-o> :NERDTreeTabsToggle<CR>
+map <c-o> :NERDTreeTabsToggle<CR>
 imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
 "tab controler
 nmap <space>] :tabn<CR>
 nmap <space>[ :tabp<CR>
-nmap <leader><space> :tabnew<CR>
+nmap <space>n :tabnew<CR>
 nmap <CR> o<Esc>
 "copy key binding
-noremap <leader>d yyp<Esc>
+noremap <space>d yyp<Esc>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
 noremap <leader>p "+P
@@ -104,7 +103,7 @@ nnoremap > >>
 "file history
 nnoremap <c-g> :GundoToggle<CR>
 "clear search hightlight
-nnoremap <silent> <leader>m :nohlsearch<CR>
+nnoremap <silent> <space>m :nohlsearch<CR>
 "fast jumping for edit
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>^
@@ -345,12 +344,12 @@ let g:unite_source_grep_command='ag'
 let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4'
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_rec_max_cache_files = 0
-call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
+call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate,grep',
             \ 'max_candidates', 0)
 nnoremap <space>y :Unite history/yank<CR>
-nnoremap <c-p> :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<CR>
-nnoremap <space>/ :Unite -no-split grep:.<CR>
-nnoremap <space>b :Unite -no-split -quick-match buffer<CR>
+nnoremap <c-p> :Unite -buffer-name=files -start-insert file_rec/async:!<CR>
+nnoremap <space>/ :Unite grep:.<CR>
+nnoremap <space>b :Unite -quick-match buffer<CR>
 "----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
@@ -364,6 +363,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Other bundles
+Bundle 'astashov/vim-ruby-debugger'
 Bundle 'mattn/emmet-vim'
 Bundle 'int3/vim-extradite'
 Bundle 'gregsexton/MatchTag'
