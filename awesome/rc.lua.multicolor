@@ -112,6 +112,8 @@ myawesomemenu = {
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal },
                                     { "thunar", "thunar" },
+                                    { "slack", "/usr/bin/google-chrome-stable --app=https://siliconstraits.slack.com/messages" },
+                                    { "dwb", "dwb" },
                                     { "firefox", "firefox" },
                                     { "google chrome", "google-chrome-stable" }
                                   }

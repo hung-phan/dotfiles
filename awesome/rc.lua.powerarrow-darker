@@ -109,6 +109,8 @@ myawesomemenu = {
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal },
                                     { "thunar", "thunar" },
+                                    { "slack", "/usr/bin/google-chrome-stable --app=https://siliconstraits.slack.com/messages" },
+                                    { "dwb", "dwb" },
                                     { "firefox", "firefox" },
                                     { "google chrome", "google-chrome-stable" }
                                   }
@@ -135,7 +137,7 @@ lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 -- Mail IMAP check
 mailicon = wibox.widget.imagebox(beautiful.widget_mail)
 mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
---[[ commented because it needs to be set before use
+--[[commented because it needs to be set before use
 mailwidget = wibox.widget.background(lain.widgets.imap({
     timeout  = 180,
     server   = "server",
