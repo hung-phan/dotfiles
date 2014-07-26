@@ -74,7 +74,7 @@ set incsearch
 "----------------------------------------------------------------
 set nobackup
 set nowritebackup
-set viminfo+=n~/.vim/viminfo
+set viminfo+=n~/.vim/info/viminfo
 set noswapfile
 set backupdir=~/tmp,/tmp
 set backupcopy=yes
@@ -107,9 +107,8 @@ nnoremap <c-g> :GundoToggle<CR>
 nnoremap <silent> <space>m :nohlsearch<CR>
 "fast jumping for edit
 inoremap <C-e> <C-o>$
-inoremap <C-f> <C-o>^
-inoremap <C-g> <C-o>dw
 inoremap <C-h> <C-o>x
+inoremap <C-g> <C-o>dw
 inoremap <C-b> <C-a>
 " Speed up viewport scrolling
 nnoremap <C-e> 4<C-e>
@@ -122,7 +121,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 " remove gap between line quickly
-nnoremap <S-l> <S-j>
+nnoremap <S-s> <S-j>
 
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
@@ -364,7 +363,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Other bundles
-Bundle 'astashov/vim-ruby-debugger'
+"Bundle 'astashov/vim-ruby-debugger'
 Bundle 'mattn/emmet-vim'
 Bundle 'int3/vim-extradite'
 Bundle 'gregsexton/MatchTag'
@@ -412,7 +411,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'gmarik/vundle'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
