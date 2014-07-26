@@ -74,6 +74,7 @@ set incsearch
 "----------------------------------------------------------------
 set nobackup
 set nowritebackup
+set viminfo+=n~/.vim/viminfo
 set noswapfile
 set backupdir=~/tmp,/tmp
 set backupcopy=yes
@@ -405,10 +406,12 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-cucumber'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'thoughtbot/vim-rspec'
 Bundle 'gmarik/vundle'
 
 " All of your Plugins must be added before the following line
