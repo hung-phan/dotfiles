@@ -7,10 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -26,8 +22,8 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -48,40 +44,10 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
-source '/home/colorvisa/.ssh/environment'
-
 # User configuration
-#
-# proxy function
-squid_proxy_on() {
-    export http_proxy="http://127.0.0.1:3128/"
-    export https_proxy="https://127.0.0.1:3128/"
-    export ftp_proxy="ftp://127.0.0.1:3128/"
-    export socks_proxy="socks://127.0.0.1:3128/"
-}
-proxy_on() {
-    local username=''
-    local password=''
-    local proxy_server=''
-    vared -p "username: " username
-    echo -n "password: "
-    read -s password
-    vared -p "proxy server: " proxy_server
-    export http_proxy="http://$username:$password@$proxy_server:8080/"
-    export https_proxy="https://$username:$password@$proxy_server:8080/"
-    export ftp_proxy="ftp://$username:$password:$proxy_server:21/"
-    echo -e "\nProxy environment variable set."
-}
-proxy_off() {
-    unset http_proxy
-    unset https_proxy
-    unset ftp_proxy
-    echo -e "\nProxy environment variable removed."
-}
-# lazy as fuck for git
 glpush() {
     local message=''
     vared -p "Message to commit: " message
@@ -96,41 +62,13 @@ glpull() {
     git commit -m "$message"
     git pull
 }
-# download server
-aria_download() {
-    cd $HOME/Downloads
-    touch session.txt
-    aria2c --enable-rpc --rpc-listen-all --save-session=session.txt -isession.txt
-}
-# dual monitor
-dual_monitor() {
-    xrandr --output VGA1 --right-of LVDS1
-}
-# single monitor
-single_monitor() {
-    xrandr --output VGA1 --off
-}
-# tmux
-otmux() {
-    tmux -2
-}
-# stop apache
-apache_off() {
-   sudo /etc/init.d/apache2 stop
-}
-
-# editor
-alias subl='/home/colorvisa/Editor/Sublime\ Text\ 2/sublime_text'
-# multiplex
-alias tmux="tmux -2"
-alias restart="sudo shutdown -r now"
-alias shutdown="sudo shutdown now"
-
-source '/home/colorvisa/.ssh/environment'
 # z command
-. $HOME/.z-master/z.sh
+. /usr/bin/z.sh
 
-export PATH="/home/colorvisa/.gem/ruby/2.1.0/bin:/usr/local/bin:/home/colorvisa/.gem/ruby/2.1.0/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl"
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+
+source $ZSH/oh-my-zsh.sh
+export PATH="/Users/sss/.rvm/gems/ruby-2.1.2/bin:/Users/sss/.rvm/gems/ruby-2.1.2@global/bin:/Users/sss/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/sss/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -149,9 +87,11 @@ export PATH="/home/colorvisa/.gem/ruby/2.1.0/bin:/usr/local/bin:/home/colorvisa/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# set tmux as default
-if [[ ! -n $TMUX ]]; then
-    tmux
-fi
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"

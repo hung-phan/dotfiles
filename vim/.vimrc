@@ -62,6 +62,8 @@ set title
 hi TabLine      guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
 hi TabLineSel   guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
 hi TabLineFill  guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+" font
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
 "----------------------------------------------------------------
 " Searching
 "----------------------------------------------------------------
@@ -183,6 +185,7 @@ au BufRead,BufNewFile .zsh_rc,.functions,.commonrc set ft=zsh
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    set clipboard+=unnamed
 else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -240,12 +243,7 @@ set t_Co=256
 "----------------------------------------------------------------
 set background=dark
 set term=xterm-256color
-" solarized
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
+colorscheme Molokai
 "----------------------------------------------------------------
 " pydiction
 "----------------------------------------------------------------
@@ -351,6 +349,13 @@ nnoremap <c-p> :Unite -buffer-name=files -start-insert file_rec/async:!<CR>
 nnoremap <space>/ :Unite grep:.<CR>
 nnoremap <space>b :Unite -quick-match buffer<CR>
 "----------------------------------------------------------------
+" Rspec
+"----------------------------------------------------------------
+map <leader>t :Dispatch rspec %<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()%<CR>
+map <leader>a :call RunAllSpecs()<CR>
+"----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
 " set the runtime path to include Vundle and initialize
@@ -384,7 +389,6 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'rhysd/clever-f.vim'
 Bundle 'matze/vim-move'
 Bundle 'majutsushi/tagbar.git'
-Bundle 'altercation/solarized'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'rkulla/pydiction'
@@ -396,6 +400,7 @@ Bundle 'bling/vim-airline'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-abolish'
