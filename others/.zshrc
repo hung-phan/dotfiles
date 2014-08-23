@@ -66,6 +66,7 @@ glpull() {
 . /usr/bin/z.sh
 
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias tmux="tmux -2"
 
 source $ZSH/oh-my-zsh.sh
 export PATH="/Users/sss/.rvm/gems/ruby-2.1.2/bin:/Users/sss/.rvm/gems/ruby-2.1.2@global/bin:/Users/sss/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/sss/.rvm/bin"
@@ -95,3 +96,5 @@ export PATH="/Users/sss/.rvm/gems/ruby-2.1.2/bin:/Users/sss/.rvm/gems/ruby-2.1.2
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
