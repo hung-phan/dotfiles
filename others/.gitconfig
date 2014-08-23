@@ -1,0 +1,17 @@
+[user]
+	name = hung-phan
+	email = colorvisavn@gmail.com
+[credential]
+	helper = cache
+[diff]
+	tool = mvimdiff
+[difftool "mvimdiff"]
+	cmd = mvim -f -d "$LOCAL" "$REMOTE"
+[merge]
+	tool = mvimdiff
+[mergetool "mvimdiff"]
+    cmd = mvim -f -d "$LOCAL" "$MERGED" "$REMOTE"
+[core]
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim
+[push]
+	default = simple
