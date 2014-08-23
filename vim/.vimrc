@@ -243,7 +243,9 @@ set t_Co=256
 "----------------------------------------------------------------
 set background=dark
 set term=xterm-256color
-colorscheme Molokai
+"colorscheme Molokai
+"colorscheme Jellybeans
+colorscheme lucius
 "----------------------------------------------------------------
 " pydiction
 "----------------------------------------------------------------
@@ -356,6 +358,14 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()%<CR>
 map <leader>a :call RunAllSpecs()<CR>
 "----------------------------------------------------------------
+" Rails shortcut
+"----------------------------------------------------------------
+map <leader>b :Dispatch bundle install<CR>
+map <leader>m :Dispatch rake db:migrate<CR>
+map <leader>mb :Dispatch rake db:rollback<CR>
+map <leader>r :Rserver!<CR>
+map <leader>c :Rails console<CR>
+"----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
 " set the runtime path to include Vundle and initialize
@@ -431,3 +441,4 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+set t_ut=
