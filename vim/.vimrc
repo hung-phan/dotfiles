@@ -30,6 +30,7 @@ set wrapscan " Searches wrap around end of file
 "----------------------------------------------------------------
 " General
 "----------------------------------------------------------------
+set shell=/bin/sh
 set cf
 set hidden
 set ffs=unix,dos,mac
@@ -341,10 +342,10 @@ nnoremap <space>b :Unite -quick-match buffer<CR>
 "----------------------------------------------------------------
 " Rspec
 "----------------------------------------------------------------
-map <leader>t :Dispatch rspec %<CR>
+map <Leader>t :Dispatch rspec %<CR>
 map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()%<CR>
-map <leader>a :call RunAllSpecs()<CR>
+map <leader>a :Dispatch rspec<CR>
 "----------------------------------------------------------------
 " Rails shortcut
 "----------------------------------------------------------------
@@ -379,7 +380,6 @@ Bundle 'edsono/vim-matchit'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
-"Bundle 'rking/ag.vim'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'mxw/vim-jsx'
 Bundle 'docunext/closetag.vim'
@@ -409,6 +409,8 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-rvm'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
