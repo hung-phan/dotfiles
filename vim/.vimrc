@@ -1,4 +1,5 @@
 set nocompatible
+set shell=/bin/sh
 filetype off " required
 let mapleader="," " change leader
 "----------------------------------------------------------------
@@ -10,8 +11,8 @@ set smartindent
 set smarttab
 set nowrap
 set encoding=utf-8 nobomb
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set virtualedit=all
 set expandtab
 set diffopt=filler " Add vertical spaces to keep right and left aligned
@@ -30,7 +31,6 @@ set wrapscan " Searches wrap around end of file
 "----------------------------------------------------------------
 " General
 "----------------------------------------------------------------
-set shell=/bin/sh
 set cf
 set hidden
 set ffs=unix,dos,mac
@@ -367,7 +367,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Other bundles
-"Bundle 'astashov/vim-ruby-debugger'
+Bundle 'guns/vim-clojure-static'
+Bundle 'guns/vim-clojure-highlight'
 Bundle 'mattn/emmet-vim'
 Bundle 'int3/vim-extradite'
 Bundle 'gregsexton/MatchTag'
@@ -409,12 +410,13 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-rvm'
+Bundle 'tpope/vim-fireplace'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'thoughtbot/vim-rspec'
 
 " All of your Plugins must be added before the following line
