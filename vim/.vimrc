@@ -3,6 +3,86 @@ set shell=/bin/sh
 filetype off " required
 let mapleader="," " change leader
 "----------------------------------------------------------------
+" Vundle
+"----------------------------------------------------------------
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Other bundles
+Plugin 'flazz/vim-colorschemes'
+Bundle 'mattn/emmet-vim'
+Bundle 'int3/vim-extradite'
+Bundle 'gregsexton/MatchTag'
+Bundle 'sheerun/vim-polyglot'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'godlygeek/tabular'
+Bundle 'edsono/vim-matchit'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'mxw/vim-jsx'
+Bundle 'docunext/closetag.vim'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'rhysd/clever-f.vim'
+Bundle 'matze/vim-move'
+Bundle 'majutsushi/tagbar.git'
+Bundle 'Raimondi/delimitMate'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'rkulla/pydiction'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'vim-scripts/Gundo'
+Bundle 'bling/vim-airline'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-rvm'
+Bundle 'tpope/vim-fireplace'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'guns/vim-clojure-static'
+Bundle 'guns/vim-clojure-highlight'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'thoughtbot/vim-rspec'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"----------------------------------------------------------------
 " Text format
 "----------------------------------------------------------------
 set autoindent
@@ -227,14 +307,8 @@ let g:multi_cursor_quit_key='<Esc>'
 " color
 "----------------------------------------------------------------
 set t_Co=256
-"----------------------------------------------------------------
-" Theme
-"----------------------------------------------------------------
 set background=dark
 set term=xterm-256color
-"colorscheme Molokai
-"colorscheme Jellybeans
-colorscheme lucius
 "----------------------------------------------------------------
 " pydiction
 "----------------------------------------------------------------
@@ -355,84 +429,12 @@ map <leader>mb :Dispatch rake db:rollback<CR>
 map <leader>r :Rserver!<CR>
 map <leader>c :Rails console<CR>
 "----------------------------------------------------------------
-" Vundle
+" Theme
 "----------------------------------------------------------------
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Other bundles
-Bundle 'guns/vim-clojure-static'
-Bundle 'guns/vim-clojure-highlight'
-Bundle 'mattn/emmet-vim'
-Bundle 'int3/vim-extradite'
-Bundle 'gregsexton/MatchTag'
-Bundle 'sheerun/vim-polyglot'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'godlygeek/tabular'
-Bundle 'edsono/vim-matchit'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'mxw/vim-jsx'
-Bundle 'docunext/closetag.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'rhysd/clever-f.vim'
-Bundle 'matze/vim-move'
-Bundle 'majutsushi/tagbar.git'
-Bundle 'Raimondi/delimitMate'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'rkulla/pydiction'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'vim-scripts/Gundo'
-Bundle 'bling/vim-airline'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/unite.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-fireplace'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'thoughtbot/vim-rspec'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+"colorscheme lucius
+"colorscheme bubblegum
+colorscheme apprentice
+"colorscheme jellybeans
 "----------------------------------------------------------------
 " Tmux config
 "----------------------------------------------------------------
