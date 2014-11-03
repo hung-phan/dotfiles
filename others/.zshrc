@@ -5,7 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="half-life"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,16 +61,17 @@ glpull() {
     vared -p "Message to commit: " message
     git add -A
     git commit -m "$message"
-    git pull
+    git pull --rebase
 }
 # z command
 . /usr/bin/z.sh
 
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias tmux="tmux -2"
 
 source $ZSH/oh-my-zsh.sh
-export PATH="/Users/sss/.rvm/gems/ruby-2.1.2/bin:/Users/sss/.rvm/gems/ruby-2.1.2@global/bin:/Users/sss/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/sss/.rvm/bin"
+export PATH="$PATH:/Users/sss/.rvm/gems/ruby-2.1.2/bin:/Users/sss/.rvm/gems/ruby-2.1.2@global/bin:/Users/sss/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/sss/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

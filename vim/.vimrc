@@ -15,58 +15,59 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Other bundles
+Plugin 'rizzatti/dash.vim'
+Plugin 'esneider/YUNOcommit.vim'
+Plugin 'benmills/vimux'
 Plugin 'flazz/vim-colorschemes'
-Bundle 'mattn/emmet-vim'
-Bundle 'int3/vim-extradite'
-Bundle 'gregsexton/MatchTag'
-Bundle 'sheerun/vim-polyglot'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'godlygeek/tabular'
-Bundle 'edsono/vim-matchit'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'mxw/vim-jsx'
-Bundle 'docunext/closetag.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'rhysd/clever-f.vim'
-Bundle 'matze/vim-move'
-Bundle 'majutsushi/tagbar.git'
-Bundle 'Raimondi/delimitMate'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'rkulla/pydiction'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'vim-scripts/Gundo'
-Bundle 'bling/vim-airline'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/unite.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-fireplace'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'guns/vim-clojure-static'
-Bundle 'guns/vim-clojure-highlight'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'thoughtbot/vim-rspec'
+Plugin 'mattn/emmet-vim'
+Plugin 'int3/vim-extradite'
+Plugin 'gregsexton/MatchTag'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'godlygeek/tabular'
+Plugin 'edsono/vim-matchit'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'mxw/vim-jsx'
+Plugin 'docunext/closetag.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'rhysd/clever-f.vim'
+Plugin 'matze/vim-move'
+Plugin 'majutsushi/tagbar.git'
+Plugin 'Raimondi/delimitMate'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'vim-scripts/Gundo'
+Plugin 'bling/vim-airline'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-rvm'
+Plugin 'tpope/vim-fireplace'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'thoughtbot/vim-rspec'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -191,8 +192,7 @@ nnoremap <silent> <space>m :nohlsearch<CR>
 "fast jumping for edit
 inoremap <C-e> <C-o>$
 inoremap <C-h> <C-o>x
-inoremap <C-g> <C-o>dw
-inoremap <C-b> <C-a>
+inoremap <C-g> <C-a>
 " Speed up viewport scrolling
 nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
@@ -304,15 +304,20 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 "----------------------------------------------------------------
+" Y U NO commit
+"----------------------------------------------------------------
+let g:YUNOcommit_after = 20
+"----------------------------------------------------------------
+" Dash
+"----------------------------------------------------------------
+nmap <silent> <leader>[ <Plug>DashSearch
+nmap <silent> <leader>] <Plug>DashGlobalSearch
+"----------------------------------------------------------------
 " color
 "----------------------------------------------------------------
 set t_Co=256
 set background=dark
 set term=xterm-256color
-"----------------------------------------------------------------
-" pydiction
-"----------------------------------------------------------------
-let g:pydiction_location = '.vim/bundle/pydiction/complete-dict'
 "----------------------------------------------------------------
 " pathogen
 "----------------------------------------------------------------
@@ -384,10 +389,6 @@ let g:extradite_width = 84
 " Ragtag
 "----------------------------------------------------------------
 let g:ragtag_global_maps = 1
-"----------------------------------------------------------------
-" Numbers
-"----------------------------------------------------------------
-nnoremap <F4> :NumbersToggle<CR>
 "----------------------------------------------------------------
 " Vim markdown
 "----------------------------------------------------------------
