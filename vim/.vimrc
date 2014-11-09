@@ -42,7 +42,6 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-scripts/Gundo'
 Plugin 'bling/vim-airline'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
@@ -55,11 +54,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-leiningen'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -185,8 +185,6 @@ noremap <leader>p "+P
 noremap <leader>f gg=G
 nnoremap < <<
 nnoremap > >>
-"file history
-nnoremap <space>g :GundoToggle<CR>
 "clear search hightlight
 nnoremap <silent> <space>m :nohlsearch<CR>
 "fast jumping for edit
@@ -404,14 +402,6 @@ vmap <Leader>: :Tabularize /:\zs<CR>
 " Extradite split size
 "----------------------------------------------------------------
 let g:extradite_width = 84
-"----------------------------------------------------------------
-" Ragtag
-"----------------------------------------------------------------
-let g:ragtag_global_maps = 1
-"----------------------------------------------------------------
-" Vim markdown
-"----------------------------------------------------------------
-let g:vim_markdown_folding_disabled=1
 "----------------------------------------------------------------
 " Powerline
 "----------------------------------------------------------------
