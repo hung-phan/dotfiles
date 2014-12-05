@@ -192,8 +192,8 @@ inoremap <C-e> <C-o>$
 inoremap <C-h> <C-o>x
 inoremap <C-g> <C-a>
 " Speed up viewport scrolling
-nnoremap <C-e> 4<C-e>
-nnoremap <C-y> 4<C-y>
+nnoremap <C-e> 6<C-e>
+nnoremap <C-y> 6<C-y>
 " Search and replace word under cursor (,*)
 nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
 " Quicker window movement
@@ -440,8 +440,9 @@ map <leader>c :Rails console<CR>
 "----------------------------------------------------------------
 "colorscheme lucius
 "colorscheme bubblegum
-colorscheme apprentice
+"colorscheme apprentice
 "colorscheme jellybeans
+colorscheme hybrid
 "----------------------------------------------------------------
 " Tmux config
 "----------------------------------------------------------------

@@ -5,7 +5,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="half-life"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -46,32 +45,15 @@ ZSH_THEME="half-life"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-# User configuration
-glpush() {
-    local message=''
-    vared -p "Message to commit: " message
-    git add -A
-    git commit -m "$message"
-    git push
-}
-glpull() {
-    local message=''
-    vared -p "Message to commit: " message
-    git add -A
-    git commit -m "$message"
-    git pull --rebase
-}
-# z command
-. /usr/bin/z.sh
-
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-alias tmux="tmux -2"
+plugins=(git osx lein z)
 
 source $ZSH/oh-my-zsh.sh
-export PATH="$PATH:/Users/sss/.rvm/gems/ruby-2.1.2/bin:/Users/sss/.rvm/gems/ruby-2.1.2@global/bin:/Users/sss/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/sss/.rvm/bin"
+
+# User configuration
+
+alias vim="/opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVim-snapshot-73/MacVim.app/Contents/MacOS/Vim"
+alias tmux="tmux -u"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/colorvisa/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -98,5 +80,3 @@ export PATH="$PATH:/Users/sss/.rvm/gems/ruby-2.1.2/bin:/Users/sss/.rvm/gems/ruby
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
