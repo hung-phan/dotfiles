@@ -35,6 +35,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'ruby' \
   'rails' \
+  'python' \
   'completion' \
   'osx' \
   'git' \
