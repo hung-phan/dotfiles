@@ -15,7 +15,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Other bundles
-Plugin 'rizzatti/dash.vim'
+Plugin 'ngmy/vim-rubocop'
 Plugin 'esneider/YUNOcommit.vim'
 Plugin 'benmills/vimux'
 Plugin 'flazz/vim-colorschemes'
@@ -423,10 +423,12 @@ nnoremap <space>b :Unite -quick-match buffer<CR>
 "----------------------------------------------------------------
 " Rspec
 "----------------------------------------------------------------
-map <Leader>t :Dispatch rspec %<CR>
-map <leader>s :call RunNearestSpec()<CR>
-map <leader>l :call RunLastSpec()%<CR>
-map <leader>a :Dispatch rspec<CR>
+let g:rspec_runner = "os_x_iterm"
+let g:rspec_command = "Dispatch rspec {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 "----------------------------------------------------------------
 " Rails shortcut
 "----------------------------------------------------------------
