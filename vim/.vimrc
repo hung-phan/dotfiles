@@ -15,6 +15,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Other bundles
+Plugin 'rizzatti/dash.vim'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'esneider/YUNOcommit.vim'
 Plugin 'benmills/vimux'
@@ -58,7 +59,6 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-leiningen'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
