@@ -117,6 +117,7 @@ set hidden
 set ffs=unix,dos,mac
 set autoread
 set magic
+set history=256                " Number of things to remember in history.
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
@@ -441,10 +442,10 @@ map <leader>c :Rails console<CR>
 " Theme
 "----------------------------------------------------------------
 "colorscheme lucius
-"colorscheme bubblegum
 "colorscheme apprentice
-"colorscheme jellybeans
-colorscheme hybrid
+colorscheme jellybeans
+"colorscheme railscasts
+"colorscheme hybrid
 "----------------------------------------------------------------
 " Tmux config
 "----------------------------------------------------------------
