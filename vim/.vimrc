@@ -21,7 +21,7 @@ Plugin 'esneider/YUNOcommit.vim'
 Plugin 'benmills/vimux'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'mattn/emmet-vim'
-Plugin 'int3/vim-extradite'
+Plugin 'gregsexton/gitv'
 Plugin 'gregsexton/MatchTag'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'SirVer/ultisnips'
@@ -65,6 +65,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
+Plugin 'guns/vim-sexp'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'thoughtbot/vim-rspec'
@@ -441,10 +443,9 @@ map <leader>c :Rails console<CR>
 "----------------------------------------------------------------
 " Theme
 "----------------------------------------------------------------
-"colorscheme lucius
+colorscheme lucius
 "colorscheme apprentice
-colorscheme jellybeans
-"colorscheme railscasts
+"colorscheme jellybeans
 "colorscheme hybrid
 "----------------------------------------------------------------
 " Tmux config
