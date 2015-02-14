@@ -18,11 +18,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'esneider/YUNOcommit.vim'
-Plugin 'benmills/vimux'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'mattn/emmet-vim'
-Plugin 'gregsexton/gitv'
-Plugin 'gregsexton/MatchTag'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -44,6 +41,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'bling/vim-airline'
+Plugin 'gregsexton/gitv'
+Plugin 'gregsexton/MatchTag'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'tpope/vim-rails'
@@ -443,9 +442,9 @@ map <leader>c :Rails console<CR>
 "----------------------------------------------------------------
 " Theme
 "----------------------------------------------------------------
-colorscheme lucius
+"colorscheme lucius
 "colorscheme apprentice
-"colorscheme jellybeans
+colorscheme jellybeans
 "colorscheme hybrid
 "----------------------------------------------------------------
 " Tmux config
