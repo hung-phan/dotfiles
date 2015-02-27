@@ -23,7 +23,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'godlygeek/tabular'
 Plugin 'edsono/vim-matchit'
 Plugin 'marijnh/tern_for_vim'
@@ -59,6 +58,7 @@ Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-leiningen'
+Plugin 'tpope/vim-classpath'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -67,7 +67,6 @@ Plugin 'guns/vim-clojure-highlight'
 Plugin 'guns/vim-sexp'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'thoughtbot/vim-rspec'
 
 " All of your Plugins must be added before the following line
@@ -122,7 +121,7 @@ set history=256                " Number of things to remember in history.
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
-set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js,node_modules
 set ofu=syntaxcomplete#Complete " Set omni-completion method.
 syntax enable
 "----------------------------------------------------------------
