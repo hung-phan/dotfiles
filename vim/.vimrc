@@ -444,7 +444,8 @@ map <leader>c :Rails console<CR>
 "colorscheme lucius
 "colorscheme apprentice
 "colorscheme jellybeans
-colorscheme hybrid
+"colorscheme hybrid
+colorscheme atom-dark-256
 "colorscheme solarized
 "----------------------------------------------------------------
 " Tmux config
