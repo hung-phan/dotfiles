@@ -415,6 +415,7 @@ let g:unite_source_grep_command='ag'
 let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4'
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_rec_max_cache_files = 0
+let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
 call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate,grep',
             \ 'max_candidates', 0)
 nnoremap <space>y :Unite history/yank<CR>
