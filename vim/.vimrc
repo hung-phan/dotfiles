@@ -121,7 +121,7 @@ set history=256                " Number of things to remember in history.
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
-set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
+set wildignore+=*.psd,*.o,*.obj,*.min.js
 set ofu=syntaxcomplete#Complete " Set omni-completion method.
 syntax enable
 "----------------------------------------------------------------
