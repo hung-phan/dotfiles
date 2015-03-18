@@ -59,6 +59,7 @@ Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-leiningen'
 Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -285,8 +286,13 @@ nnoremap <space>gm :Gmove<Space>
 nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
-nnoremap <space>gpl :Dispatch! git pull<CR>
 nnoremap <space>gup :Dispatch git fetch && git rebase<CR>
+"----------------------------------------------------------------
+" Gitv
+"----------------------------------------------------------------
+nmap <space>gv :Gitv --all<cr>
+nmap <space>gV :Gitv! --all<cr>
+vmap <space>gV :Gitv! --all<cr>
 "----------------------------------------------------------------
 " Emmet
 "----------------------------------------------------------------
@@ -350,13 +356,13 @@ let g:rbpt_colorpairs = [
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['brown',       'firebrick3'],
     \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['Darkblue',    'firebrick3'],
     \ ['darkgreen',   'RoyalBlue3'],
     \ ['darkcyan',    'SeaGreen3'],
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
+    \ ['blue',        'SeaGreen3'],
     \ ]
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
