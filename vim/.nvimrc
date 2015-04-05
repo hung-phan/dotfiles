@@ -473,6 +473,6 @@ if has('nvim')
   nmap <BS> <C-W>h
 endif
 if has('nvim') && exists(':tnoremap')
-  tnoremap <c-\> <c-\><c-n>
+  tnoremap <c-x> <c-\><c-n>
   au WinEnter term://* startinsert
 endif
