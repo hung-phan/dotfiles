@@ -19,7 +19,6 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'esneider/YUNOcommit.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'mattn/emmet-vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -293,10 +292,6 @@ nnoremap <space>gup :Dispatch git fetch && git rebase<CR>
 nmap <space>gv :Gitv --all<cr>
 nmap <space>gV :Gitv! --all<cr>
 vmap <space>gV :Gitv! --all<cr>
-"----------------------------------------------------------------
-" Emmet
-"----------------------------------------------------------------
-let g:user_emmet_leader_key='<C-z>'
 "----------------------------------------------------------------
 " Ultisnips trigger
 "----------------------------------------------------------------
