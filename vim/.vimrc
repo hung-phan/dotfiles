@@ -67,7 +67,7 @@ Plugin 'guns/vim-clojure-highlight'
 Plugin 'guns/vim-sexp'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'janko-m/vim-test'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -335,10 +335,6 @@ set t_Co=256
 set background=dark
 set term=xterm-256color
 "----------------------------------------------------------------
-" pathogen
-"----------------------------------------------------------------
-execute pathogen#infect()
-"----------------------------------------------------------------
 " Rainbow
 "----------------------------------------------------------------
 let g:rainbow_active = 1
@@ -425,14 +421,14 @@ nnoremap <c-p> :Unite -buffer-name=files -start-insert file_rec/async:!<CR>
 nnoremap <space>/ :Unite grep:.<CR>
 nnoremap <space>b :Unite -quick-match buffer<CR>
 "----------------------------------------------------------------
-" Rspec
+" Test runner
 "----------------------------------------------------------------
-let g:rspec_runner = "os_x_iterm"
-let g:rspec_command = "Dispatch rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+let test#strategy = "dispatch"
+nmap <silent> <Leader>t :TestNearest<CR>
+nmap <silent> <Leader>T :TestFile<CR>
+nmap <silent> <Leader>a :TestSuite<CR>
+nmap <silent> <Leader>l :TestLast<CR>
+nmap <silent> <Leader>g :TestVisit<CR>
 "----------------------------------------------------------------
 " Rails shortcut
 "----------------------------------------------------------------
@@ -446,9 +442,9 @@ map <leader>c :Rails console<CR>
 "----------------------------------------------------------------
 "colorscheme lucius
 "colorscheme apprentice
-"colorscheme jellybeans
+colorscheme jellybeans
 "colorscheme hybrid
-colorscheme atom-dark-256
+"colorscheme atom-dark-256
 "colorscheme solarized
 "----------------------------------------------------------------
 " Tmux config
