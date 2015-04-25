@@ -5,16 +5,11 @@ let mapleader="," " change leader
 "----------------------------------------------------------------
 " Vundle
 "----------------------------------------------------------------
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Other bundles
 Plugin 'rizzatti/dash.vim'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'esneider/YUNOcommit.vim'
@@ -37,12 +32,12 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'luochen1990/rainbow'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'bling/vim-airline'
 Plugin 'gregsexton/gitv'
 Plugin 'gregsexton/MatchTag'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimfiler.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
@@ -61,7 +56,6 @@ Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'guns/vim-sexp'
@@ -69,20 +63,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'janko-m/vim-test'
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 "----------------------------------------------------------------
 " Text format
 "----------------------------------------------------------------
@@ -91,6 +73,7 @@ set cindent
 set smartindent
 set smarttab
 set nowrap
+scriptencoding utf-8
 set encoding=utf-8 nobomb
 set tabstop=2
 set shiftwidth=2
@@ -117,6 +100,7 @@ set hidden
 set ffs=unix,dos,mac
 set autoread
 set magic
+set timeoutlen=250
 set history=256                " Number of things to remember in history.
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set ttyfast " Send more characters at a given time.
@@ -168,7 +152,7 @@ set directory=/tmp
 "----------------------------------------------------------------
 " command mode
 "----------------------------------------------------------------
-map <c-o> :NERDTreeTabsToggle<CR>
+map <c-o> :VimFilerExplorer<CR>
 imap <c-c> <ESC>
 nmap <leader>w :w!<CR>
 nmap <leader>q :q<CR>
@@ -292,6 +276,27 @@ nnoremap <space>gup :Dispatch git fetch && git rebase<CR>
 nmap <space>gv :Gitv --all<cr>
 nmap <space>gV :Gitv! --all<cr>
 vmap <space>gV :Gitv! --all<cr>
+"----------------------------------------------------------------
+" Vimfiler
+"----------------------------------------------------------------
+let g:vimfiler_as_default_explorer = 1
+call vimfiler#custom#profile('default', 'context', {
+        \ 'safe' : 0,
+        \ 'auto_expand' : 1,
+        \ 'parent' : 0
+        \ })
+
+function! s:vimfiler_settings()
+  nunmap <buffer> <C-l>
+  nunmap <buffer> <C-j>
+  nnoremap <buffer> <C-r> <Plug>(vimfiler_redraw_screen)
+  nnoremap <silent><buffer><expr> v
+        \ vimfiler#do_switch_action('vsplit')
+  nnoremap <silent><buffer><expr> s
+        \ vimfiler#do_switch_action('split')
+endfunction
+
+autocmd FileType vimfiler call s:vimfiler_settings()
 "----------------------------------------------------------------
 " Ultisnips trigger
 "----------------------------------------------------------------
