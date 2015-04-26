@@ -239,6 +239,8 @@ au BufNewFile,BufRead *.nu,*.nujson,Nukefile setf nu
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 " ZSH
 au BufRead,BufNewFile .zsh_rc,.functions,.commonrc set ft=zsh
+" Clojure
+autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 "----------------------------------------------------------------
 " easymotion
 "----------------------------------------------------------------
