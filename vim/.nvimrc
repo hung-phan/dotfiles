@@ -24,7 +24,7 @@ Plug 'docunext/closetag.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rhysd/clever-f.vim'
 Plug 'matze/vim-move'
-Plug 'majutsushi/tagbar.git'
+Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'
 Plug 'luochen1990/rainbow'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
@@ -48,7 +48,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-rvm'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-leiningen', { 'for': 'clojure' } 
+Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'scrooloose/nerdcommenter'
