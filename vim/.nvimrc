@@ -3,67 +3,64 @@ set shell=/bin/sh
 filetype off " required
 let mapleader="," " change leader
 "----------------------------------------------------------------
-" Vundle
+" Vim plug
 "----------------------------------------------------------------
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'ngmy/vim-rubocop'
+Plug 'esneider/YUNOcommit.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'sheerun/vim-polyglot'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'godlygeek/tabular'
+Plug 'edsono/vim-matchit'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'mxw/vim-jsx'
+Plug 'docunext/closetag.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'rhysd/clever-f.vim'
+Plug 'matze/vim-move'
+Plug 'majutsushi/tagbar.git'
+Plug 'Raimondi/delimitMate'
+Plug 'luochen1990/rainbow'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'kchmck/vim-coffee-script'
+Plug 'bling/vim-airline'
+Plug 'gregsexton/gitv'
+Plug 'gregsexton/MatchTag'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-rvm'
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-leiningen', { 'for': 'clojure' } 
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'guns/vim-clojure-static' , { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'airblade/vim-gitgutter'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'janko-m/vim-test'
 
-Plugin 'rizzatti/dash.vim'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'esneider/YUNOcommit.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'godlygeek/tabular'
-Plugin 'edsono/vim-matchit'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'mxw/vim-jsx'
-Plugin 'docunext/closetag.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'rhysd/clever-f.vim'
-Plugin 'matze/vim-move'
-Plugin 'majutsushi/tagbar.git'
-Plugin 'Raimondi/delimitMate'
-Plugin 'luochen1990/rainbow'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'bling/vim-airline'
-Plugin 'gregsexton/gitv'
-Plugin 'gregsexton/MatchTag'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimfiler.vim'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-rvm'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-leiningen'
-Plugin 'tpope/vim-classpath'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'guns/vim-sexp'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'janko-m/vim-test'
-
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
 "----------------------------------------------------------------
 " Text format
