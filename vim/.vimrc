@@ -14,7 +14,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'godlygeek/tabular'
 Plug 'edsono/vim-matchit'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -393,13 +392,6 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " Beautify
 "----------------------------------------------------------------
 noremap <F3> :Autoformat<CR><CR>
-"----------------------------------------------------------------
-" Tabularize
-"----------------------------------------------------------------
-nnoremap <Leader>= :Tabularize /=<CR>
-vmap <Leader>= :Tabularize /=<CR>
-nnoremap <Leader>: :Tabularize /:\zs<CR>
-vmap <Leader>: :Tabularize /:\zs<CR>
 "----------------------------------------------------------------
 " Extradite split size
 "----------------------------------------------------------------
