@@ -8,7 +8,7 @@ let mapleader="," " change leader
 call plug#begin('~/.vim/plugged')
 
 Plug 'rizzatti/dash.vim'
-Plug 'ngmy/vim-rubocop'
+Plug 'ngmy/vim-rubocop', { 'on': 'RuboCop' }
 Plug 'esneider/YUNOcommit.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'sheerun/vim-polyglot'
@@ -18,6 +18,7 @@ Plug 'godlygeek/tabular'
 Plug 'edsono/vim-matchit'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/yajs.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'mxw/vim-jsx'
 Plug 'docunext/closetag.vim'
