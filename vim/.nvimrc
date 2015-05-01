@@ -1,4 +1,6 @@
-set nocompatible
+if &compatible
+  set nocompatible
+end
 set shell=/bin/sh
 filetype off " required
 let mapleader="," " change leader
