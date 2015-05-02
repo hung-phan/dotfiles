@@ -38,7 +38,6 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
@@ -420,6 +419,10 @@ nnoremap <space>y :Unite history/yank<CR>
 nnoremap <c-p> :Unite -buffer-name=files -start-insert file_rec/async:!<CR>
 nnoremap <space>/ :Unite grep:.<CR>
 nnoremap <space>b :Unite -quick-match buffer<CR>
+"----------------------------------------------------------------
+" Dispatch
+"----------------------------------------------------------------
+nnoremap <leader>d :Dispatch<space>
 "----------------------------------------------------------------
 " Test runner
 "----------------------------------------------------------------
