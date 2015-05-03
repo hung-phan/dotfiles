@@ -158,6 +158,8 @@ nmap <space>] :tabn<CR>
 nmap <space>[ :tabp<CR>
 nmap <space>n :tabnew<CR>
 nmap <CR> o<Esc>
+"close quickfix window
+nmap <space>q :cclose<CR>
 "copy key binding
 noremap <space>d yyp<Esc>
 noremap <leader>y "+y
