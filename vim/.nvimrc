@@ -26,7 +26,6 @@ Plug 'docunext/closetag.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rhysd/clever-f.vim'
 Plug 'matze/vim-move'
-Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'
 Plug 'luochen1990/rainbow'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
@@ -36,6 +35,7 @@ Plug 'gregsexton/gitv'
 Plug 'gregsexton/MatchTag'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
@@ -168,7 +168,7 @@ noremap <leader>f gg=G
 nnoremap < <<
 nnoremap > >>
 "clear search hightlight
-nnoremap <silent> <space>m :nohlsearch<CR>
+nnoremap <silent> // :nohlsearch<CR>
 "fast jumping for edit
 inoremap <C-e> <C-o>$
 inoremap <C-h> <C-o>x
@@ -314,6 +314,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_loc_list_height=5
 "----------------------------------------------------------------
+" You Complete Me
+"----------------------------------------------------------------
+let g:ycm_disable_for_files_larger_than_kb = 1000
+"----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
 let g:move_key_modifier = 'S'
@@ -367,12 +371,6 @@ let g:rainbow_conf = {
 \   }
 \}
 "----------------------------------------------------------------
-" Tag bar
-"----------------------------------------------------------------
-set tags=./tags,tags;/
-let g:tagbar_usearrows = 1
-nnoremap <c-i> :TagbarToggle<cr>
-"----------------------------------------------------------------
 " javascript library completion
 "----------------------------------------------------------------
 let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,requirejs,jasmine,sugar,prelude'
@@ -408,17 +406,53 @@ let g:airline#extensions#tabline#enabled = 1
 "----------------------------------------------------------------
 " Unite
 "----------------------------------------------------------------
-let g:unite_source_grep_command='ag'
-let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4'
+let g:unite_update_time = 500
+let g:unite_cursor_line_highlight = 'TabLineSel'
+
+if executable('ag')
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts =
+        \ '--nocolor --nonumbers --nogroup --nofilename --follow --hidden --ignore ' .
+        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
+        \ '--ignore ''**/*.pyc'''
+  let g:unite_source_rec_async_command='ag --smart-case -w --vimgrep --follow --nocolor --nogroup --hidden --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
+  let g:unite_source_grep_recursive_opt=''
+  let g:unite_source_grep_search_word_highlight = 1
+endif
+
 let g:unite_source_history_yank_enable = 1
+let g:unite_enable_short_source_names = 1
 let g:unite_source_file_rec_max_cache_files = 0
-let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
-call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate,grep',
-            \ 'max_candidates', 0)
+
+function! s:unite_my_settings()
+  "Don't add parens to my filters
+  let b:delimitMate_autoclose = 0
+
+  nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
+  nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
+
+  nnoremap <buffer> <Up> 3<c-y>
+  nnoremap <buffer> <Down> 3<c-e>
+  inoremap <buffer> <Up> <esc>3<c-y>
+  inoremap <buffer> <Down> <esc>3<c-e>
+endfunction
+autocmd FileType unite call s:unite_my_settings()
+
 nnoremap <space>y :Unite history/yank<CR>
 nnoremap <c-p> :Unite -buffer-name=files -start-insert file_rec/async:!<CR>
-nnoremap <space>/ :Unite grep:.<CR>
-nnoremap <space>b :Unite -quick-match buffer<CR>
+nnoremap <space>/ :Unite -buffer-name=grep grep:.<CR>
+nnoremap <space>o :Unite -buffer-name=outline -no-split -vertical outline<CR>
+nnoremap <space>r :UniteResume<CR>
+nnoremap <space>b :Unite -buffer-name=buffer -quick-match buffer<CR>
+
+" Fuzzy match by default
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+" Fuzzy matching for plugins not using matcher_default as filter
+call unite#custom#profile('files', 'filters', 'sorter_rank')
+call unite#custom#source('outline,grep', 'matchers', ['matcher_fuzzy'])
+call unite#custom#source('buffer,file_rec,file_rec/async,file_rec/git,grepocate,grep', 'max_candidates', 0)
 "----------------------------------------------------------------
 " Dispatch
 "----------------------------------------------------------------
