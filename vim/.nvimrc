@@ -103,7 +103,6 @@ set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm2 " Set mouse type to xterm.
 set wildignore+=*.psd,*.o,*.obj,*.min.js
-set ofu=syntaxcomplete#Complete " Set omni-completion method.
 syntax enable
 "----------------------------------------------------------------
 " UI
@@ -135,6 +134,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
+set gdefault
 "----------------------------------------------------------------
 " Backup
 "----------------------------------------------------------------
@@ -171,8 +171,6 @@ nnoremap > >>
 nnoremap <silent> // :nohlsearch<CR>
 "fast jumping for edit
 inoremap <C-e> <C-o>$
-inoremap <C-h> <C-o>x
-inoremap <C-g> <C-a>
 " Speed up viewport scrolling
 nnoremap <C-e> 6<C-e>
 nnoremap <C-y> 6<C-y>
@@ -212,7 +210,6 @@ noremap <leader>W :w !sudo tee %<CR>
 " Toggle show tabs and trailing spaces (,c)
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
 set fcs=fold:-
-nnoremap <silent> <leader>t :set nolist!<CR>
 
 "map key for page
 map <PageUp> <C-U>
@@ -245,8 +242,8 @@ autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 "----------------------------------------------------------------
 nmap <leader><leader>s <Plug>(easymotion-s2)
 nmap <leader><leader>t <Plug>(easymotion-t2)
-map  <leader>/ <Plug>(easymotion-sn)
-omap <leader>/ <Plug>(easymotion-tn)
+map  <leader><leader>/ <Plug>(easymotion-sn)
+omap <leader><leader>/ <Plug>(easymotion-tn)
 map  <leader><leader>n <Plug>(easymotion-next)
 map  <leader><leader>N <Plug>(easymotion-prev)
 let g:EasyMotion_smartcase = 1
@@ -317,6 +314,20 @@ let g:syntastic_loc_list_height=5
 " You Complete Me
 "----------------------------------------------------------------
 let g:ycm_disable_for_files_larger_than_kb = 1000
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.'],
+  \   'objc' : ['->', '.'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'cs,java,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
@@ -373,14 +384,7 @@ let g:rainbow_conf = {
 "----------------------------------------------------------------
 " javascript library completion
 "----------------------------------------------------------------
-let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,requirejs,jasmine,sugar,prelude'
-autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_requirejs= 1
-autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_sugar = 1
+let g:used_javascript_libs = 'underscore,jquery,angularjs,angularui,react,requirejs,jasmine'
 "----------------------------------------------------------------
 " Ruby code autocomplete
 "----------------------------------------------------------------
@@ -396,11 +400,8 @@ noremap <F3> :Autoformat<CR><CR>
 "----------------------------------------------------------------
 let g:extradite_width = 84
 "----------------------------------------------------------------
-" Powerline
+" Airline
 "----------------------------------------------------------------
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 "----------------------------------------------------------------
@@ -427,6 +428,11 @@ let g:unite_source_file_rec_max_cache_files = 0
 function! s:unite_my_settings()
   "Don't add parens to my filters
   let b:delimitMate_autoclose = 0
+  let b:SuperTabDisabled=1
+
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 
   nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
   nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
@@ -439,7 +445,7 @@ endfunction
 autocmd FileType unite call s:unite_my_settings()
 
 nnoremap <space>y :Unite history/yank<CR>
-nnoremap <c-p> :Unite -buffer-name=files -start-insert file_rec/async:!<CR>
+nnoremap <space>p :Unite -buffer-name=files -start-insert file_rec/async:!<CR>
 nnoremap <space>/ :Unite -buffer-name=grep grep:.<CR>
 nnoremap <space>o :Unite -buffer-name=outline -no-split -vertical outline<CR>
 nnoremap <space>r :UniteResume<CR>
@@ -461,11 +467,11 @@ nnoremap <leader>d :Dispatch<space>
 " Test runner
 "----------------------------------------------------------------
 let test#strategy = "dispatch"
-nmap <silent> <Leader>t :TestNearest<CR>
-nmap <silent> <Leader>T :TestFile<CR>
-nmap <silent> <Leader>a :TestSuite<CR>
-nmap <silent> <Leader>l :TestLast<CR>
-nmap <silent> <Leader>g :TestVisit<CR>
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 "----------------------------------------------------------------
 " Rails shortcut
 "----------------------------------------------------------------
