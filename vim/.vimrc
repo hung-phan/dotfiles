@@ -302,7 +302,9 @@ autocmd FileType vimfiler call s:vimfiler_settings()
 "----------------------------------------------------------------
 " Ultisnips trigger
 "----------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 "----------------------------------------------------------------
 " Syntastic
 "----------------------------------------------------------------
@@ -317,6 +319,8 @@ let g:syntastic_loc_list_height=5
 "----------------------------------------------------------------
 " You Complete Me
 "----------------------------------------------------------------
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 let g:ycm_disable_for_files_larger_than_kb = 1000
 let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_semantic_triggers =  {
