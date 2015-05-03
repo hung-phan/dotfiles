@@ -31,12 +31,14 @@ Plug 'luochen1990/rainbow'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'bling/vim-airline'
+Plug 'moll/vim-node'
 Plug 'gregsexton/gitv'
 Plug 'gregsexton/MatchTag'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
+Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -103,6 +105,7 @@ set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm2 " Set mouse type to xterm.
 set wildignore+=*.psd,*.o,*.obj,*.min.js
+set ofu=syntaxcomplete#Complete
 syntax enable
 "----------------------------------------------------------------
 " UI
@@ -329,6 +332,14 @@ let g:ycm_semantic_triggers =  {
   \   'lua' : ['.', ':'],
   \   'erlang' : [':'],
   \ }
+"----------------------------------------------------------------
+" Ruby completion
+"----------------------------------------------------------------
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+let g:rubycomplete_include_object = 1
+let g:rubycomplete_include_objectspace = 1
 "----------------------------------------------------------------
 " Swap line function
 "----------------------------------------------------------------
