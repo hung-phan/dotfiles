@@ -403,6 +403,10 @@ let g:rainbow_conf = {
 "----------------------------------------------------------------
 let g:used_javascript_libs = 'underscore,jquery,angularjs,angularui,react,requirejs,jasmine'
 "----------------------------------------------------------------
+" jsx
+"----------------------------------------------------------------
+let g:jsx_ext_required = 1
+"----------------------------------------------------------------
 " Ruby code autocomplete
 "----------------------------------------------------------------
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
