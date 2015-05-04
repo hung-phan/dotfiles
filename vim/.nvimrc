@@ -434,10 +434,10 @@ let g:unite_cursor_line_highlight = 'TabLineSel'
 if executable('ag')
   let g:unite_source_grep_command='ag'
   let g:unite_source_grep_default_opts =
-        \ '--nocolor --nonumbers --nogroup --nofilename --follow --hidden --ignore ' .
+        \ '--nocolor --nogroup --hidden --ignore ' .
         \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
         \ '--ignore ''**/*.pyc'''
-  let g:unite_source_rec_async_command='ag --smart-case -w --vimgrep --follow --nocolor --nogroup --hidden --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
+  "let g:unite_source_rec_async_command='ag --smart-case -w --vimgrep --follow --nocolor --nogroup --hidden --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
   let g:unite_source_grep_recursive_opt=''
   let g:unite_source_grep_search_word_highlight = 1
 endif
