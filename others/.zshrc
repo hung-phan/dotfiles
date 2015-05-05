@@ -16,7 +16,7 @@ fi
 # Customize to your needs...
 
 alias vim="/opt/homebrew-cask/Caskroom/macvim/7.4-75/MacVim-snapshot-75/MacVim.app/Contents/MacOS/Vim"
-alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
+alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs"
 alias tmux="tmux -u"
 alias fuck='$(thefuck $(fc -ln -1))'
 
