@@ -429,35 +429,39 @@ let g:airline#extensions#tabline#enabled = 1
 " Unite
 "----------------------------------------------------------------
 let g:unite_update_time = 500
-let g:unite_cursor_line_highlight = 'TabLineSel'
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_file_rec_max_cache_files = -1
+let g:unite_source_rec_async_command='ag --smart-case -w --vimgrep --follow --nocolor --nogroup --hidden --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
+let g:unite_source_rec_async_command='ag --nocolor --nogroup --hidden  -g "" --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr"'
 
 if executable('ag')
-  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts =
         \ '--nocolor --nogroup --hidden --ignore ' .
         \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
         \ '--ignore ''**/*.pyc'''
-  "let g:unite_source_rec_async_command='ag --smart-case -w --vimgrep --follow --nocolor --nogroup --hidden --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
   let g:unite_source_grep_recursive_opt=''
-  let g:unite_source_grep_search_word_highlight = 1
 endif
 
-let g:unite_source_history_yank_enable = 1
-let g:unite_enable_short_source_names = 1
-let g:unite_source_file_rec_max_cache_files = 0
+call unite#custom#profile('default', 'context', {
+      \ 'vertical' : 0,
+      \ 'short_source_names' : 1,
+      \ })
+call unite#custom#profile('action', 'context', {
+      \ 'start_insert' : 1
+      \ })
 
 function! s:unite_my_settings()
   "Don't add parens to my filters
   let b:delimitMate_autoclose = 0
-  let b:SuperTabDisabled=1
 
   " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  imap <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+  imap <buffer> <Tab> <Plug>(unite_complete)
 
-  nnoremap <buffer> <C-n> <Plug>(unite_select_next_line)
-  nnoremap <buffer> <C-p> <Plug>(unite_select_previous_line)
-
+  nmap <buffer> <C-z> <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-z> <Plug>(unite_toggle_transpose_window)
   nnoremap <buffer> <Up> 3<c-y>
   nnoremap <buffer> <Down> 3<c-e>
   inoremap <buffer> <Up> <esc>3<c-y>
@@ -472,14 +476,18 @@ nnoremap <space>o :Unite -buffer-name=outline -no-split -vertical outline<CR>
 nnoremap <space>r :UniteResume<CR>
 nnoremap <space>b :Unite -buffer-name=buffer -quick-match buffer<CR>
 
-" Fuzzy match by default
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#source(
+      \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
+      \ ['converter_relative_word', 'matcher_fuzzy',
+      \  'matcher_project_ignore_files'])
+call unite#custom#source(
+      \ 'file_mru', 'matchers',
+      \ ['matcher_project_files', 'matcher_fuzzy',
+      \  'matcher_hide_hidden_files', 'matcher_hide_current_file'])
+call unite#custom#source(
+      \ 'file_rec,file_rec/async,file_rec/git,file_mru', 'converters',
+      \ ['converter_file_directory'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-
-" Fuzzy matching for plugins not using matcher_default as filter
-call unite#custom#profile('files', 'filters', 'sorter_rank')
-call unite#custom#source('outline,grep', 'matchers', ['matcher_fuzzy'])
-call unite#custom#source('buffer,file_rec,file_rec/async,file_rec/git,grepocate,grep', 'max_candidates', 0)
 "----------------------------------------------------------------
 " Dispatch
 "----------------------------------------------------------------
