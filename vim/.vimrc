@@ -428,6 +428,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Unite
 "----------------------------------------------------------------
 let g:unite_update_time = 500
+let g:unite_redraw_hold_candidates = 50000
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_rec_max_cache_files = -1
 let g:unite_source_rec_async_command='ag --smart-case -w --vimgrep --follow --nocolor --nogroup --hidden --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""'
@@ -477,12 +478,8 @@ nnoremap <space>b :Unite -buffer-name=buffer -quick-match buffer<CR>
 
 call unite#custom#source(
       \ 'buffer,file_rec,file_rec/async,file_rec/git', 'matchers',
-      \ ['converter_relative_word', 'matcher_fuzzy',
-      \  'matcher_project_ignore_files'])
-call unite#custom#source(
-      \ 'file_mru', 'matchers',
-      \ ['matcher_project_files', 'matcher_fuzzy',
-      \  'matcher_hide_hidden_files', 'matcher_hide_current_file'])
+      \ ['converter_relative_word', 'matcher_fuzzy'])
+call unite#custom#source('file_mru', 'matchers', ['matcher_fuzzy'])
 call unite#custom#source(
       \ 'file_rec,file_rec/async,file_rec/git,file_mru', 'converters',
       \ ['converter_file_directory'])
