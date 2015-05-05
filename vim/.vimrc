@@ -176,7 +176,6 @@ nnoremap > >>
 nnoremap <silent> // :nohlsearch<CR>
 "fast jumping for edit
 inoremap <C-e> <C-o>$
-inoremap <space><space> <C-o>$
 " Speed up viewport scrolling
 nnoremap <C-e> 6<C-e>
 nnoremap <C-y> 6<C-y>
