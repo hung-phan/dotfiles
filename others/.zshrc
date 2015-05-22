@@ -15,6 +15,7 @@ fi
 
 # Customize to your needs...
 
+alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/Emacs -nw"
 alias vim="/opt/homebrew-cask/Caskroom/macvim/7.4-75/MacVim-snapshot-75/MacVim.app/Contents/MacOS/Vim"
 alias tmux="tmux -u"
 alias fuck='$(thefuck $(fc -ln -1))'
@@ -24,5 +25,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR=~/.nvm
 
 source $(brew --prefix nvm)/nvm.sh
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export TERM=xterm-256color
 
 cd ..;1
