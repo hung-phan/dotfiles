@@ -30,4 +30,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
 
+# virtual python env
+eval "$(pyenv init -)"
+
 cd ..;1
