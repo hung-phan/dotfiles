@@ -36,5 +36,4 @@ eval "$(pyenv init -)"
 cd ..;1
 
 # java
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
