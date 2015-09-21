@@ -16,7 +16,7 @@ fi
 # Customize to your needs...
 
 alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/Emacs -nw"
-alias vim="/opt/homebrew-cask/Caskroom/macvim/7.4-75/MacVim-snapshot-75/MacVim.app/Contents/MacOS/Vim"
+alias vim="nvim"
 alias tmux="tmux -u"
 alias fuck='$(thefuck $(fc -ln -1))'
 
@@ -34,3 +34,7 @@ export TERM=xterm-256color
 eval "$(pyenv init -)"
 
 cd ..;1
+
+# java
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
