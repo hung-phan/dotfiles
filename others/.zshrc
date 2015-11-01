@@ -16,7 +16,6 @@ fi
 # Customize to your needs...
 
 alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/Emacs -nw"
-alias vim="nvim"
 alias tmux="tmux -u"
 alias fuck='$(thefuck $(fc -ln -1))'
 
