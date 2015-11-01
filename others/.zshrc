@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # rupa/z command
-. /usr/local/Cellar/z/1.8/etc/profile.d/z.sh
+. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 # Customize to your needs...
 
@@ -32,8 +32,6 @@ export TERM=xterm-256color
 
 # virtual python env
 eval "$(pyenv init -)"
-
-cd ..;1
 
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
