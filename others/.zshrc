@@ -10,14 +10,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Customize to your needs...
+
 # rupa/z command
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
-# Customize to your needs...
-
 alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/Emacs -nw"
 alias tmux="tmux -u"
-alias fuck='$(thefuck $(fc -ln -1))'
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/colorvisa/.rvm/bin"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
