@@ -30,5 +30,8 @@ export TERM=xterm-256color
 # virtual python env
 eval "$(pyenv init -)"
 
+# rbenv
+eval "$(rbenv init -)"
+
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
