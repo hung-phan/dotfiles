@@ -18,8 +18,6 @@ fi
 alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/Emacs -nw"
 alias tmux="tmux -u"
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/colorvisa/.rvm/bin"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export NVM_DIR=~/.nvm
 
 source $(brew --prefix nvm)/nvm.sh
@@ -34,3 +32,5 @@ eval "$(pyenv init -)"
 
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
