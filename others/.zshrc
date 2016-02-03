@@ -32,5 +32,3 @@ eval "$(pyenv init -)"
 
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
