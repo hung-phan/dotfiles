@@ -33,5 +33,8 @@ eval "$(pyenv init -)"
 # rbenv
 eval "$(rbenv init -)"
 
+# hub alias
+eval "$(hub alias -s)"
+
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
