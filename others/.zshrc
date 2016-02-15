@@ -29,6 +29,7 @@ export TERM=xterm-256color
 
 # virtual python env
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # rbenv
 eval "$(rbenv init -)"
