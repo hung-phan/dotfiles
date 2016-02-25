@@ -1,0 +1,130 @@
+if &compatible
+  set nocompatible
+end
+set shell=/bin/sh
+filetype off " required
+let mapleader="," " change leader
+
+"----------------------------------------------------------------
+" Text format
+"----------------------------------------------------------------
+set autoindent
+set cindent
+set smartindent
+set smarttab
+set nowrap
+scriptencoding utf-8
+set encoding=utf-8 nobomb
+set tabstop=2
+set shiftwidth=2
+set virtualedit=all
+set expandtab
+set diffopt=filler " Add vertical spaces to keep right and left aligned
+set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
+set formatoptions=
+set formatoptions+=c " Format comments
+set formatoptions+=r " Continue comments by default
+set formatoptions+=o " Make comment when using o or O from comment line
+set formatoptions+=q " Format comments with gq
+set formatoptions+=n " Recognize numbered lists
+set formatoptions+=2 " Use indent from 2nd line of a paragraph
+set formatoptions+=l " Don't break lines that are already long
+set formatoptions+=1 " Break before 1-letter words
+set nostartofline " Don't reset cursor to start of line when moving around.
+set wrapscan " Searches wrap around end of file
+"----------------------------------------------------------------
+" General
+"----------------------------------------------------------------
+set cf
+set hidden
+set ffs=unix,dos,mac
+set autoread
+set magic
+set timeoutlen=250
+set history=256                " Number of things to remember in history.
+set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
+set ttyfast " Send more characters at a given time.
+set ttymouse=xterm2 " Set mouse type to xterm.
+set wildignore+=*.psd,*.o,*.obj,*.min.js
+set ofu=syntaxcomplete#Complete
+syntax enable
+"----------------------------------------------------------------
+" UI
+"----------------------------------------------------------------
+set ruler
+set nolazyredraw
+set backspace=indent,eol,start
+set number
+set mouse=a
+set mousehide
+set laststatus=2
+set report=0
+set wildmenu
+set wildmode=full
+set cursorline "Highligh current line"
+set esckeys " Allow cursor keys in insert mode.
+set visualbell " Use visual bell instead of audible bell (annnnnoying)
+"set showtabline=2 " Always show tab bar.
+set title
+hi TabLine      guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+hi TabLineSel   guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
+hi TabLineFill  guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+" font
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
+"----------------------------------------------------------------
+" Searching
+"----------------------------------------------------------------
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set gdefault
+"----------------------------------------------------------------
+" Backup
+"----------------------------------------------------------------
+set nobackup
+set nowritebackup
+set viminfo+=n~/.vim/info/viminfo
+set noswapfile
+set backupdir=~/tmp,/tmp
+set backupcopy=yes
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+set directory=/tmp
+
+"----------------------------------------------------------------
+" Mapping
+"----------------------------------------------------------------
+imap <c-c> <ESC>
+"tab controler
+nmap <space>] :tabn<CR>
+nmap <space>[ :tabp<CR>
+nmap <space>n :tabnew<CR>
+nmap <CR> o<Esc>
+"close quickfix window
+nmap <space>q :cclose<CR>
+"copy key binding
+noremap <space>d yyp<Esc>
+"formatting
+nnoremap < <<
+nnoremap > >>
+"fast jumping for edit
+inoremap <C-e> <C-o>$
+" Speed up viewport scrolling
+nnoremap <C-e> 6<C-e>
+nnoremap <C-y> 6<C-y>
+" Quicker window movement
+" remove gap between line quickly
+nnoremap <S-s> <S-j>
+" Toggle show tabs and trailing spaces (,c)
+set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
+set fcs=fold:-
+
+"map key for page
+map <PageUp> <C-U>
+map <PageDown> <C-D>
+imap <PageUp> <C-O><C-U>
+imap <PageDown> <C-O><C-D>
+
+" Auto close scratch preview window
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
