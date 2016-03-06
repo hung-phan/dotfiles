@@ -21,8 +21,13 @@ set gdefault
 "----------------------------------------------------------------
 " Mapping
 "----------------------------------------------------------------
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+
 imap <c-c> <ESC>
 nmap <CR> o<Esc>
+
+nnoremap // :nohlsearch<CR>
 
 "copy key binding
 noremap <space>d yyp<Esc>
@@ -47,4 +52,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nmap <leader>w :action SaveAll<CR>
+nmap <space>g :action Vcs.QuickListPopupAction<CR>
+nmap <space>b :action RecentFiles<CR>
+nmap <space>p :action SearchEverywhere<CR>
+
