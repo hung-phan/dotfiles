@@ -1,3 +1,4 @@
+let mapleader=","
 "----------------------------------------------------------------
 " Text format
 "----------------------------------------------------------------
@@ -39,3 +40,11 @@ nnoremap <C-y> 6<C-y>
 
 " remove gap between line quickly
 nnoremap <S-s> <S-j>
+
+" fast move between window
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nmap <leader>w :action SaveAll<CR>
