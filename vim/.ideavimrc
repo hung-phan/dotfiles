@@ -44,7 +44,7 @@ nnoremap <C-e> 6<C-e>
 nnoremap <C-y> 6<C-y>
 
 " remove gap between line quickly
-nnoremap <S-s> <S-j>
+nnoremap ; <S-j>
 
 " fast move between window
 nnoremap <C-h> <C-w>h
@@ -55,4 +55,3 @@ nnoremap <C-l> <C-w>l
 nmap <space>g :action Vcs.QuickListPopupAction<CR>
 nmap <space>b :action RecentFiles<CR>
 nmap <space>p :action SearchEverywhere<CR>
-
