@@ -54,4 +54,3 @@ nnoremap <C-l> <C-w>l
 
 nmap <space>g :action Vcs.QuickListPopupAction<CR>
 nmap <space>b :action RecentFiles<CR>
-nmap <space>p :action SearchEverywhere<CR>
