@@ -16,6 +16,7 @@ fi
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 alias emacs="/opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/Emacs -nw"
+alias chrome-debug-mode="/opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias tmux="tmux -u"
 
 export NVM_DIR=~/.nvm
