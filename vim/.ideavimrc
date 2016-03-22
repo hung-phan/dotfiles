@@ -1,5 +1,9 @@
 let mapleader=","
 "----------------------------------------------------------------
+" Copy
+"----------------------------------------------------------------
+set clipboard+=unnamed
+"----------------------------------------------------------------
 " Text format
 "----------------------------------------------------------------
 set wrapscan " Searches wrap around end of file
@@ -24,7 +28,7 @@ set gdefault
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
-imap <c-c> <ESC>
+imap <c-g> <ESC>
 nmap <CR> o<Esc>
 
 nnoremap // :nohlsearch<CR>
