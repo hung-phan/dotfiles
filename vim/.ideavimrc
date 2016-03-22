@@ -25,16 +25,16 @@ set gdefault
 "----------------------------------------------------------------
 " Mapping
 "----------------------------------------------------------------
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 
 imap <c-g> <ESC>
-nmap <CR> o<Esc>
+nnoremap <CR> o<Esc>
 
 nnoremap // :nohlsearch<CR>
 
 "copy key binding
-noremap <space>d yyp<Esc>
+noremap <Space>d yyp<Esc>
 
 "formatting
 nnoremap < <<
@@ -55,6 +55,3 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-nmap <space>g :action Vcs.QuickListPopupAction<CR>
-nmap <space>b :action RecentFiles<CR>
