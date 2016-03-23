@@ -40,9 +40,6 @@ noremap <Space>d yyp<Esc>
 nnoremap < <<
 nnoremap > >>
 
-"fast jumping for edit
-inoremap <C-e> <C-o>$
-
 " Speed up viewport scrolling
 nnoremap <C-e> 6<C-e>
 nnoremap <C-y> 6<C-y>
