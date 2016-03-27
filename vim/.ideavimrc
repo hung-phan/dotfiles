@@ -28,7 +28,9 @@ set gdefault
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
-imap <c-g> <ESC>
+inoremap <C-g> <ESC>
+vnoremap <C-g> <ESC>
+nnoremap <C-g> <ESC>
 nnoremap <CR> o<Esc>
 
 nnoremap // :nohlsearch<CR>
@@ -46,9 +48,3 @@ nnoremap <C-y> 6<C-y>
 
 " remove gap between line quickly
 nnoremap ; <S-j>
-
-" fast move between window
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
