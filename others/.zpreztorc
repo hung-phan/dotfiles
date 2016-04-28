@@ -28,21 +28,26 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
-  'history-substring-search' \
-  'history-substring-search' \
   'directory' \
   'spectrum' \
   'utility' \
-  'ruby' \
-  'rails' \
-  'python' \
   'completion' \
-  'osx' \
   'git' \
+  'osx' \
+  'ruby' \
+  'python' \
+  'node' \
   'ssh' \
   'tmux' \
-  'utility' \
+  'history-substring-search' \
   'prompt'
+#
+# Autosuggestions
+#
+
+# Set the query found color.
+# zstyle ':prezto:module:autosuggestions:color' found ''
+
 #
 # Editor
 #
@@ -134,6 +139,7 @@ zstyle ':prezto:module:ssh:load' identities 'id_rsa'
 #   'main' \
 #   'brackets' \
 #   'pattern' \
+#   'line' \
 #   'cursor' \
 #   'root'
 #
