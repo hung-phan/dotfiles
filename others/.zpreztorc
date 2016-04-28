@@ -39,7 +39,7 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'node' \
   'ssh' \
-  'tmux'
+  'tmux' \
   'prompt'
 #
 # Autosuggestions
