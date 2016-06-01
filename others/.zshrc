@@ -29,11 +29,17 @@ export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
 
 # virtual python env
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+pyenv() {
+  eval "$(command pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  pyenv "$@"
+}
 
 # rbenv
-eval "$(rbenv init -)"
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
 # hub alias
 eval "$(hub alias -s)"
