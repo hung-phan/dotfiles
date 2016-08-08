@@ -23,7 +23,7 @@ export NVM_DIR=~/.nvm
 
 source $(brew --prefix nvm)/nvm.sh
 
-export EDITOR=emacs
+export EDITOR=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
@@ -43,6 +43,3 @@ rbenv() {
 
 # hub alias
 eval "$(hub alias -s)"
-
-# java
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"

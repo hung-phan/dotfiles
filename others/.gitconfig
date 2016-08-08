@@ -4,14 +4,14 @@
 [credential]
 	helper = cache
 [diff]
-	tool = mvimdiff
-[difftool "mvimdiff"]
-	cmd = /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVIm-snapshot-73/MacVim.app/Contents/MacOS/Vim -f -d  "$LOCAL" "$REMOTE"
+	tool = vim
+[difftool "vim"]
+	cmd = vim -f -d  "$LOCAL" "$REMOTE"
 [merge]
-	tool = mvimdiff
+	tool = vim
 [mergetool "mvimdiff"]
-    cmd = /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVIm-snapshot-73/MacVim.app/Contents/MacOS/Vim -f -d "$BASE" "$LOCAL" "$MERGED" "$REMOTE"
+    cmd = vim -f -d "$BASE" "$LOCAL" "$MERGED" "$REMOTE"
 [core]
-	editor = /opt/homebrew-cask/Caskroom/macvim/7.4-73/MacVIm-snapshot-73/MacVim.app/Contents/MacOS/Vim
+	editor = vim
 [push]
 	default = simple
