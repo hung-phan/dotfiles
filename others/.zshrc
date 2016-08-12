@@ -15,8 +15,8 @@ fi
 # rupa/z command
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
-alias emacs="/usr/local/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/Emacs -nw"
-alias chrome-debug-mode="/usr/local/Caskroom/google-chrome/latest/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias tmux="tmux -u"
 
 export NVM_DIR=~/.nvm
