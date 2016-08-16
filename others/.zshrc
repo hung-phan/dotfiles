@@ -43,3 +43,7 @@ rbenv() {
 
 # hub alias
 eval "$(hub alias -s)"
+
+update_and_cleanup() {
+  brew update && brew cask update && brew upgrade && brew cleanup && brew cask cleanup
+}
