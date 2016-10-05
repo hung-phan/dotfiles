@@ -19,10 +19,6 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias tmux="tmux -u"
 
-export NVM_DIR=~/.nvm
-
-source $(brew --prefix nvm)/nvm.sh
-
 export EDITOR=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -41,8 +37,12 @@ rbenv() {
   rbenv "$@"
 }
 
-# hub alias
-eval "$(hub alias -s)"
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# change git alias
+alias git=hub
 
 update_and_cleanup() {
   brew update && brew cask update && brew upgrade && brew cleanup && brew cask cleanup
