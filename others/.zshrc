@@ -25,17 +25,11 @@ export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
 
 # virtual python env
-pyenv() {
-  eval "$(command pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  pyenv "$@"
-}
+eval "$(command pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # rbenv
-rbenv() {
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
+eval "$(command rbenv init -)"
 
 # nvm
 export NVM_DIR=~/.nvm
