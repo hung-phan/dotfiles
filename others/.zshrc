@@ -12,6 +12,9 @@ fi
 
 # Customize to your needs...
 
+# quick fix for yarn
+export PATH="$PATH:/Users/$(whoami)/.config/yarn/global/node_modules/.bin"
+
 # rupa/z command
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
@@ -39,5 +42,5 @@ source $(brew --prefix nvm)/nvm.sh
 alias git=hub
 
 update_and_cleanup() {
-  brew update && brew cask update && brew upgrade && brew cleanup && brew cask cleanup
+  brew update && brew upgrade && brew cleanup && brew cask cleanup
 }
