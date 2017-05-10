@@ -38,6 +38,9 @@ eval "$(command rbenv init -)"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+# kubectl
+source <(kubectl completion zsh)
+
 # change git alias
 alias git=hub
 
