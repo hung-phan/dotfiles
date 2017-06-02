@@ -34,9 +34,11 @@ nnoremap <C-g> <ESC>
 nnoremap <CR> o<Esc>
 
 nnoremap // :nohlsearch<CR>
+nnoremap <Space><Space> :action Switcher<CR>
 
 "copy key binding
 noremap <Space>d yyp<Esc>
+noremap <Space>g :action Vcs.QuickListPopupAction<CR>
 
 "formatting
 nnoremap < <<
