@@ -40,6 +40,7 @@ source $(brew --prefix nvm)/nvm.sh
 
 # kubectl
 source <(kubectl completion zsh)
+alias kc=kubectl
 
 # change git alias
 alias git=hub
