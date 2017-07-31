@@ -13,7 +13,7 @@ fi
 # Customize to your needs...
 
 # quick fix for yarn
-export PATH="$PATH:/Users/$(whoami)/.config/yarn/global/node_modules/.bin"
+export PATH="$PATH:/Users/$(whoami)/.config/yarn/global/node_modules/.bin:/usr/local/opt/go/libexec/bin"
 
 # rupa/z command
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
@@ -38,6 +38,9 @@ eval "$(command rbenv init -)"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+# sbtenv
+eval "$(sbtenv init -)"
+
 # kubectl
 source <(kubectl completion zsh)
 alias kc=kubectl
@@ -48,3 +51,5 @@ alias git=hub
 update_and_cleanup() {
   brew update && brew upgrade && brew cleanup && brew cask cleanup
 }
+
+[[ -s "/Users/hphan/.gvm/scripts/gvm" ]] && source "/Users/hphan/.gvm/scripts/gvm"
