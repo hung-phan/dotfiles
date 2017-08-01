@@ -38,9 +38,6 @@ eval "$(command rbenv init -)"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# sbtenv
-eval "$(sbtenv init -)"
-
 # kubectl
 source <(kubectl completion zsh)
 alias kc=kubectl
