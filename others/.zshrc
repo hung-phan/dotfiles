@@ -46,7 +46,7 @@ alias kc=kubectl
 alias git=hub
 
 update_and_cleanup() {
-  brew update && brew upgrade && brew cleanup && brew cask cleanup
+  brew update && brew upgrade && brew cu && brew cleanup && brew cask cleanup
 }
 
 [[ -s "/Users/hphan/.gvm/scripts/gvm" ]] && source "/Users/hphan/.gvm/scripts/gvm"
