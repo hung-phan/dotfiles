@@ -38,6 +38,9 @@ eval "$(command rbenv init -)"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # kubectl
 source <(kubectl completion zsh)
 alias kc=kubectl
