@@ -34,6 +34,9 @@ eval "$(pyenv virtualenv-init -)"
 # rbenv
 eval "$(command rbenv init -)"
 
+# jenv
+eval "$(jenv init -)"
+
 # nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
