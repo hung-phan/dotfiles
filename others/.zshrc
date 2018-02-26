@@ -23,6 +23,7 @@ alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\
 alias tmux="tmux -u"
 
 export EDITOR=vim
+export VISUAL=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
