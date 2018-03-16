@@ -27,11 +27,16 @@ set gdefault
 "----------------------------------------------------------------
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <C-o> :action Forward<CR>
+nnoremap <C-i> :action Back<CR>
 
 inoremap <C-g> <ESC>
 vnoremap <C-g> <ESC>
 nnoremap <C-g> <ESC>
 nnoremap <CR> o<Esc>
+
+"fast jumping for edit
+inoremap <C-e> <End>
 
 nnoremap // :nohlsearch<CR>
 nnoremap <Space><Space> :action Switcher<CR>
