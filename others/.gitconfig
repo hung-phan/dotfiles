@@ -1,17 +1,6 @@
 [user]
-	name = hung-phan
+	name = hungphan
 	email = colorvisavn@gmail.com
-[credential]
-	helper = cache
-[diff]
-	tool = vim
-[difftool "vim"]
-	cmd = vim -f -d  "$LOCAL" "$REMOTE"
-[merge]
-	tool = vim
-[mergetool "mvimdiff"]
-    cmd = vim -f -d "$BASE" "$LOCAL" "$MERGED" "$REMOTE"
 [core]
-	editor = vim
-[push]
-	default = simple
+	autocrlf = input
+	excludesfile = /Users/hungphan/Desktop/workarea/.gitignore
