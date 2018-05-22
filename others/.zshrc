@@ -28,6 +28,9 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
 
+# load tmux by default
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # virtual python env
 eval "$(command pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -69,6 +72,9 @@ eval "$(direnv hook zsh)"
 # kubectl
 source <(kubectl completion zsh)
 alias kc=kubectl
+
+# awless
+source <(awless completion zsh)
 
 # change git alias
 alias git=hub
