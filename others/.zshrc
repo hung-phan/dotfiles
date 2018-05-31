@@ -12,9 +12,6 @@ fi
 
 # Customize to your needs...
 
-# quick fix for yarn
-export PATH="$PATH:/Users/$(whoami)/.config/yarn/global/node_modules/.bin:/usr/local/opt/go/libexec/bin"
-
 # rupa/z command
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
