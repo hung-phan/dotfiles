@@ -29,14 +29,14 @@ export TERM=xterm-256color
 if [ "$TMUX" = "" ]; then tmux; fi
 
 # virtual python env
-eval "$(command pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(command pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # rbenv
-eval "$(command rbenv init -)"
+# eval "$(command rbenv init -)"
 
 # jenv
-eval "$(jenv init -)"
+# eval "$(jenv init -)"
 
 # nvm
 export NVM_DIR=~/.nvm
