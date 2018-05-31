@@ -79,3 +79,6 @@ alias git=hub
 update_and_cleanup() {
   brew update && brew upgrade && brew cu && brew cleanup && brew cask cleanup
 }
+
+# prune duplicated entry in PATH to speed up completion
+typeset -U PATH
