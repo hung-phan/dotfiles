@@ -306,6 +306,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (global-set-key (kbd "C-g") 'evil-escape)
+  (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen)
   )
 
 (defun dotspacemacs/user-config ()
