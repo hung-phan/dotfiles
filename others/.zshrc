@@ -77,7 +77,7 @@ source <(awless completion zsh)
 alias git=hub
 
 update_and_cleanup() {
-  brew update && brew upgrade && brew cu && brew cleanup && brew cask cleanup
+  brew update && brew upgrade && brew cu && brew cleanup && brew cask cleanup && brew doctor
 }
 
 # prune duplicated entry in PATH to speed up completion
