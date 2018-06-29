@@ -25,9 +25,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
 
-# load tmux by default
-if [ "$TMUX" = "" ]; then tmux; fi
-
 # virtual python env
 eval "$(command pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
