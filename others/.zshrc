@@ -29,6 +29,9 @@ export TERM=xterm-256color
 eval "$(command pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# go
+export GOPATH=$HOME/Desktop/workarea/gocode
+
 # rbenv
 eval "$(command rbenv init -)"
 
