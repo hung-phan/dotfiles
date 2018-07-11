@@ -33,6 +33,8 @@ eval "$(pyenv virtualenv-init -)"
 export GOPATH=$HOME/Desktop/workarea/gocode
 export GOBIN=$GOPATH/bin
 
+export PATH="$PATH:$GOBIN"
+
 # rbenv
 eval "$(command rbenv init -)"
 
