@@ -35,9 +35,6 @@ export GOBIN=$GOPATH/bin
 
 export PATH="$PATH:$GOBIN"
 
-# rbenv
-eval "$(command rbenv init -)"
-
 # jenv
 eval "$(jenv init -)"
 
@@ -80,7 +77,7 @@ source <(awless completion zsh)
 alias git=hub
 
 update_and_cleanup() {
-  brew update && brew upgrade && brew cu && brew cleanup && brew cask cleanup && brew doctor
+  brew update && brew upgrade && brew cu && brew cleanup && brew doctor
 }
 
 # prune duplicated entry in PATH to speed up completion
