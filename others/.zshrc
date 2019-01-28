@@ -76,8 +76,16 @@ source <(awless completion zsh)
 # change git alias
 alias git=hub
 
+update_prezto() {
+  cd $ZPREZTODIR
+  git stash
+  git pull
+  git submodule update --init --recursive
+  git stash pop
+}
+
 update_and_cleanup() {
-  brew update && brew upgrade && brew cu && brew cleanup && brew doctor
+  update_prezto && brew update && brew upgrade && brew cu && brew cleanup && brew doctor
 }
 
 # prune duplicated entry in PATH to speed up completion
