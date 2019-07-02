@@ -35,6 +35,9 @@ export GOBIN=$GOPATH/bin
 
 export PATH="$PATH:$GOBIN"
 
+# thefuck
+eval $(thefuck --alias fk)
+
 # jenv
 eval "$(jenv init -)"
 
