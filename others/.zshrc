@@ -89,7 +89,7 @@ update_prezto() {
 }
 
 update_and_cleanup() {
-  update_prezto && brew update && brew upgrade && brew cu -a && brew cleanup && brew doctor
+  update_prezto && brew update && brew upgrade && brew cu && brew cleanup && brew doctor
 }
 
 # prune duplicated entry in PATH to speed up completion
