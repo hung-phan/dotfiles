@@ -18,6 +18,7 @@ fi
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias tmux="tmux -u"
+alias lzd='lazydocker'
 
 export EDITOR=vim
 export VISUAL=vim
@@ -88,7 +89,7 @@ update_prezto() {
 }
 
 update_and_cleanup() {
-  update_prezto && brew update && brew upgrade && brew cu && brew cleanup && brew doctor
+  update_prezto && brew update && brew upgrade && brew cu -a && brew cleanup && brew doctor
 }
 
 # prune duplicated entry in PATH to speed up completion
