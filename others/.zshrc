@@ -15,6 +15,7 @@ fi
 # rupa/z command
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
+alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias tmux="tmux -u"
