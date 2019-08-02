@@ -20,6 +20,7 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias tmux="tmux -u"
 alias lzd='lazydocker'
+alias zshreload=". ~/.zshrc"
 
 export EDITOR=vim
 export VISUAL=vim
