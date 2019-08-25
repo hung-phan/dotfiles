@@ -88,6 +88,7 @@ update_prezto() {
   git pull
   git submodule update --init --recursive
   git stash pop
+  cd -
 }
 
 update_and_cleanup() {
