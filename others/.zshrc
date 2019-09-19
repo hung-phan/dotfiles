@@ -92,7 +92,15 @@ update_prezto() {
 }
 
 update_and_cleanup() {
-  update_prezto && brew update && brew upgrade && brew cu && brew cleanup && brew doctor
+  update_prezto
+  brew update
+  brew upgrade
+  brew cu
+  brew cleanup
+  brew doctor
+  cd /Users/hungphan/Dropbox/Document/Install\ scripts 
+  ./bundle_script.sh
+  cd -
 }
 
 # prune duplicated entry in PATH to speed up completion
