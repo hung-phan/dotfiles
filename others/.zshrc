@@ -96,7 +96,7 @@ update_and_cleanup() {
   brew update
   brew upgrade
   brew cu
-  brew cleanup
+  brew cleanup -s
   brew doctor
   cd /Users/hphan/Dropbox/Document/Install\ scripts 
   ./bundle_script.sh
