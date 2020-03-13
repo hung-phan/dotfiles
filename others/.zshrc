@@ -13,7 +13,7 @@ fi
 # Customize to your needs...
 
 # rupa/z command
-. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+. /usr/local/Cellar/z/1.11/etc/profile.d/z.sh
 
 alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
@@ -37,9 +37,6 @@ export GOPATH=$HOME/Desktop/workarea/gocode
 export GOBIN=$GOPATH/bin
 
 export PATH="$PATH:$GOBIN"
-
-# thefuck
-eval $(thefuck --alias fk)
 
 # jenv
 eval "$(jenv init -)"
