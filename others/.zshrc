@@ -12,9 +12,6 @@ fi
 
 # Customize to your needs...
 
-# rupa/z command
-. /usr/local/Cellar/z/1.11/etc/profile.d/z.sh
-
 alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
@@ -28,15 +25,18 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
 
-# virtual python env
-eval "$(command pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # go
 export GOPATH=$HOME/Desktop/workarea/gocode
 export GOBIN=$GOPATH/bin
 
 export PATH="$PATH:$GOBIN"
+
+# rupa/z command
+. /usr/local/Cellar/z/1.11/etc/profile.d/z.sh
+
+# virtual python env
+eval "$(command pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # jenv
 eval "$(jenv init -)"
