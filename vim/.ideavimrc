@@ -52,9 +52,6 @@ nnoremap > >>
 " Speed up viewport scrolling
 nnoremap <C-e> 6<C-e>
 nnoremap <C-y> 6<C-y>
-
-" remove gap between line quickly
-nnoremap ; <S-j>
 "----------------------------------------------------------------
 " Extension
 "----------------------------------------------------------------
