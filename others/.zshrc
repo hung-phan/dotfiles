@@ -32,7 +32,7 @@ export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOBIN"
 
 # rupa/z command
-. /usr/local/Cellar/z/1.11/etc/profile.d/z.sh
+. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 # virtual python env
 eval "$(command pyenv init -)"
