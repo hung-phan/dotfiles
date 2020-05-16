@@ -3,4 +3,4 @@
 	email = colorvisavn@gmail.com
 [core]
 	autocrlf = input
-	excludesfile = /Users/hungphan/Desktop/workarea/.gitignore
+	excludesfile = ~/Desktop/workarea/.gitignore

@@ -11,7 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-
 alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
@@ -95,7 +94,7 @@ update_and_cleanup() {
   brew cu
   brew cleanup -s
   brew doctor
-  cd /Users/hphan/Dropbox/Document/Install\ scripts 
+  cd ~/Dropbox/Document/Install\ scripts 
   ./bundle_script.sh
   cd -
 }
