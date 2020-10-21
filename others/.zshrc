@@ -100,5 +100,10 @@ update_and_cleanup() {
   cd -
 }
 
+docker_cleanup() {
+  docker system prune -f
+  docker volume prune -f
+}
+
 # prune duplicated entry in PATH to speed up completion
 typeset -U PATH
