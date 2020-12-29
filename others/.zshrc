@@ -17,6 +17,7 @@ alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\
 alias tmux="tmux -u"
 alias lzd='lazydocker'
 alias zshreload=". ~/.zshrc"
+alias ranger=". ranger"
 
 export EDITOR=vim
 export VISUAL=vim
@@ -107,3 +108,6 @@ docker_cleanup() {
 
 # prune duplicated entry in PATH to speed up completion
 typeset -U PATH
+
+# Toolbox
+export PATH=$HOME/.toolbox/bin:$PATH
