@@ -17,7 +17,7 @@ alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\
 alias tmux="tmux -u"
 alias lzd='lazydocker'
 alias zshreload=". ~/.zshrc"
-alias ranger=". ranger"
+alias rg=". ranger"
 
 export EDITOR=vim
 export VISUAL=vim
