@@ -31,6 +31,9 @@ export GOBIN=$GOPATH/bin
 
 export PATH="$PATH:$GOBIN"
 
+# Toolbox
+export PATH=$HOME/.toolbox/bin:$PATH
+
 # rupa/z command
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
@@ -108,6 +111,3 @@ docker_cleanup() {
 
 # prune duplicated entry in PATH to speed up completion
 typeset -U PATH
-
-# Toolbox
-export PATH=$HOME/.toolbox/bin:$PATH
