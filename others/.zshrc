@@ -45,6 +45,9 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(jenv init -)"
 export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
 
+# rbenv
+eval "$(rbenv init -)""
+
 # nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
