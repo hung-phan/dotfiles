@@ -46,7 +46,7 @@ eval "$(jenv init -)"
 export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
 
 # rbenv
-eval "$(rbenv init -)""
+eval "$(rbenv init -)"
 
 # nvm
 export NVM_DIR=~/.nvm
