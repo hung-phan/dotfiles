@@ -18,6 +18,7 @@ alias tmux="tmux -u"
 alias lzd='lazydocker'
 alias zshreload=". ~/.zshrc"
 alias rg=". ranger"
+alias bb="brazil-build"
 
 export EDITOR=vim
 export VISUAL=vim
