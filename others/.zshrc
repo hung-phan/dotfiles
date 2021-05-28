@@ -29,7 +29,6 @@ export TERM=xterm-256color
 # go
 export GOPATH=$HOME/Desktop/workarea/gocode
 export GOBIN=$GOPATH/bin
-
 export PATH="$PATH:$GOBIN"
 
 # Toolbox
@@ -39,7 +38,11 @@ export PATH=$HOME/.toolbox/bin:$PATH
 . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 # virtual python env
-eval "$(command pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # jenv
