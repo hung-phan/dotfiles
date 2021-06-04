@@ -84,9 +84,6 @@ eval "$(direnv hook zsh)"
 source <(kubectl completion zsh)
 alias kc=kubectl
 
-# awless
-source <(awless completion zsh)
-
 # change git alias
 alias git=hub
 
