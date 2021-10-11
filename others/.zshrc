@@ -115,3 +115,7 @@ docker_cleanup() {
 
 # prune duplicated entry in PATH to speed up completion
 typeset -U PATH
+
+# sdkman
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
