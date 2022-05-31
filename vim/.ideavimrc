@@ -27,8 +27,6 @@ set gdefault
 "----------------------------------------------------------------
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <C-o> :action Forward<CR>
-nnoremap <C-i> :action Back<CR>
 
 inoremap <C-g> <ESC>
 vnoremap <C-g> <ESC>
