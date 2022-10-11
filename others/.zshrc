@@ -35,7 +35,7 @@ export PATH="$PATH:$GOBIN"
 export PATH=$HOME/.toolbox/bin:$PATH
 
 # rupa/z command
-. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+. /opt/homebrew/Cellar/z/1.9/etc/profile.d/z.sh
 
 # virtual python env
 export PYENV_ROOT="$HOME/.pyenv"
@@ -44,10 +44,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# jenv
-eval "$(jenv init -)"
-export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
 
 # rbenv
 eval "$(rbenv init -)"
@@ -79,10 +75,6 @@ load-nvmrc
 
 # direnv
 eval "$(direnv hook zsh)"
-
-# kubectl
-source <(kubectl completion zsh)
-alias kc=kubectl
 
 # change git alias
 alias git=hub
