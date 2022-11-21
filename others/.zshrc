@@ -95,7 +95,7 @@ update_and_cleanup() {
   brew cu
   brew cleanup -s
   brew doctor
-  cd ~/Dropbox/Document/Install\ scripts 
+  cd ~/Library/CloudStorage/Dropbox/Document/Install\ scripts 
   ./bundle_script.sh
   cd -
 }
