@@ -35,7 +35,7 @@ export PATH="$PATH:$GOBIN"
 export PATH=$HOME/.toolbox/bin:$PATH
 
 # rupa/z command
-. /opt/homebrew/Cellar/z/1.9/etc/profile.d/z.sh
+. /opt/homebrew/Cellar/z/1.12/etc/profile.d/z.sh
 
 # virtual python env
 export PYENV_ROOT="$HOME/.pyenv"
@@ -111,3 +111,50 @@ typeset -U PATH
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+# JINA_CLI_BEGIN
+
+## autocomplete
+if [[ ! -o interactive ]]; then
+    return
+fi
+
+compctl -K _jina jina
+
+_jina() {
+  local words completions
+  read -cA words
+
+  if [ "${#words}" -eq 2 ]; then
+    completions="$(jina commands)"
+  else
+    completions="$(jina completions ${words[2,-2]})"
+  fi
+
+  reply=(${(ps:
+:)completions})
+}
+
+# session-wise fix
+ulimit -n 4096
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# JINA_CLI_END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
