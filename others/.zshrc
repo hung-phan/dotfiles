@@ -45,7 +45,7 @@ export PATH="$PATH:$GOBIN"
 # Toolbox
 export PATH=$HOME/.toolbox/bin:$PATH
 export BRAZIL_BUILD_HOME=~/.toolbox
-export ANDROID_SDK_ROOT=~/Library/Android/sdk/ 
+export ANDROID_HOME=~/Library/Android/sdk/ 
 
 # rupa/z command
 . /opt/homebrew/Cellar/z/1.12/etc/profile.d/z.sh
@@ -154,20 +154,3 @@ ulimit -n 4096
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # JINA_CLI_END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
