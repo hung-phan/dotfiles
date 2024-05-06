@@ -45,7 +45,10 @@ export PATH="$PATH:$GOBIN"
 # Toolbox
 export PATH=$HOME/.toolbox/bin:$PATH
 export BRAZIL_BUILD_HOME=~/.toolbox
-export ANDROID_HOME=~/Library/Android/sdk/ 
+
+# Android
+export ANDROID_HOME=~/Library/Android/sdk 
+export PATH=$ANDROID_HOME/platform-tools:$PATH
 
 # rupa/z command
 . /opt/homebrew/Cellar/z/1.12/etc/profile.d/z.sh
