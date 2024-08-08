@@ -19,6 +19,7 @@ alias lzd='lazydocker'
 alias zshreload=". ~/.zshrc"
 alias rg=". ranger"
 alias bb="brazil-build"
+alias bpc="brazil-package-cache"
 alias bba="brazil-build apollo-pkg"
 alias bre="brazil-runtime-exec"
 alias brc="brazil-recursive-cmd"
@@ -30,6 +31,7 @@ alias bbr="brc brazil-build"
 alias bball="brc --allPackages"
 alias bbb="brc --allPackages brazil-build"
 alias bbra="bbr apollo-pkg"
+alias bcc="bpc clean --days 0 --kepCacheHours 0"
 
 export EDITOR=vim
 export VISUAL=vim
