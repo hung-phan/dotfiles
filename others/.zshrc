@@ -31,13 +31,16 @@ alias bbr="brc brazil-build"
 alias bball="brc --allPackages"
 alias bbb="brc --allPackages brazil-build"
 alias bbra="bbr apollo-pkg"
-alias bcc="bpc clean --days 0 --keepCacheHours 0"
+alias bcc="bpc clean --days 0 --keepCacheHours 0 && bpc stop && bws clean && bpc start"
 
 export EDITOR=vim
 export VISUAL=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
+
+# kubectl
+alias kc=kubectl
 
 # go
 export GOPATH=$HOME/Desktop/workarea/gocode
