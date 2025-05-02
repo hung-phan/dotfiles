@@ -31,6 +31,7 @@ alias bball="brc --allPackages"
 alias bbb="brc --allPackages brazil-build"
 alias bbra="bbr apollo-pkg"
 alias bcc="bpc clean --days 0 --keepCacheHours 0 && bpc stop && bws clean && bpc start"
+alias q="~/.local/bin/q"
 
 export EDITOR=vim
 export VISUAL=vim
