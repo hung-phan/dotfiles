@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+alias vim="nvim"
 alias chrome-debug-mode="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias tmux="tmux -u"
 alias lzd='lazydocker'
@@ -33,8 +33,8 @@ alias bbra="bbr apollo-pkg"
 alias bcc="bpc clean --days 0 --keepCacheHours 0 && bpc stop && bws clean && bpc start"
 alias kiro-cli="/Users/phahng/.local/bin/kiro-cli"
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
