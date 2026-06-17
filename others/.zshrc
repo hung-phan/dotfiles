@@ -58,6 +58,7 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 # Claude config
 export ECC_CONTEXT_MONITOR_COST_WARNINGS=off
 export HEADROOM_TELEMETRY=off
+export HEADROOM_OUTPUT_SHAPER=1
 
 # rupa/z command
 . /opt/homebrew/Cellar/z/1.12/etc/profile.d/z.sh
