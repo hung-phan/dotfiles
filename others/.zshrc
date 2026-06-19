@@ -37,7 +37,12 @@ export EDITOR=nvim
 export VISUAL=nvim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export TERM=xterm-256color
+# Only force a fallback TERM when not inside a terminal that sets its own.
+# Ghostty/cmux export TERM=xterm-ghostty and rely on it to load shell-integration
+# (cwd reporting, prompt marks, etc.). Forcing xterm-256color breaks that.
+if [[ -z "$TERM" || "$TERM" == "dumb" ]]; then
+  export TERM=xterm-256color
+fi
 
 # kubectl
 alias kc=kubectl
@@ -129,3 +134,35 @@ eval "$(mise activate zsh)"
 
 # Added by AIM CLI
 export PATH="$HOME/.aim/mcp-servers:$PATH"
+
+# Source cmux's zsh shell integration. cmux sets CMUX_SHELL_INTEGRATION_DIR
+# but does NOT auto-source the script — without this block, no cwd reporting,
+# tabs/splits open in `~` instead of $PWD, and the cmux CLI wrappers are absent.
+# Confirmed 2026-06-19: verified empty hook registrations both with prezto on
+# and with prezto disabled, so this is required regardless of plugin manager.
+# Locally enable `clobber` because the shim-installer uses `>file` and prezto's
+# noclobber default trips it (warns on every new tab).
+if [[ -n "$CMUX_SHELL_INTEGRATION_DIR" && -f "$CMUX_SHELL_INTEGRATION_DIR/cmux-zsh-integration.zsh" ]]; then
+  () {
+    emulate -L zsh
+    setopt clobber
+    source "$CMUX_SHELL_INTEGRATION_DIR/cmux-zsh-integration.zsh"
+  }
+fi
+
+# Emit OSC 7 (cwd) so Ghostty/cmux can inherit cwd into new tabs/splits.
+# cmux's own integration tracks cwd internally but does not emit OSC 7,
+# which is what `tab-inherit-working-directory` / `split-inherit-working-directory`
+# require. Emit it ourselves on every directory change + once at startup.
+if [[ "$TERM" == "xterm-ghostty" || -n "$GHOSTTY_RESOURCES_DIR" ]]; then
+  _emit_osc7_cwd() {
+    local pwd_url
+    # URL-encode PWD: percent-encode anything outside RFC 3986 unreserved set.
+    pwd_url="${PWD//\%/%25}"
+    pwd_url="${pwd_url// /%20}"
+    printf '\033]7;file://%s%s\033\\' "${HOST:-$(hostname)}" "$pwd_url"
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook chpwd _emit_osc7_cwd
+  _emit_osc7_cwd
+fi
