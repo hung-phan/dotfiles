@@ -147,6 +147,14 @@ if [[ -n "$CMUX_SHELL_INTEGRATION_DIR" && -f "$CMUX_SHELL_INTEGRATION_DIR/cmux-z
     emulate -L zsh
     setopt clobber
     source "$CMUX_SHELL_INTEGRATION_DIR/cmux-zsh-integration.zsh"
+    # cmux re-installs the claude shim from a precmd hook (_cmux_fix_path).
+    # That hook runs outside this anonymous function's scope, so noclobber is
+    # back in effect by then — patch the function body to re-enable clobber.
+    if (( $+functions[_cmux_fix_path] )); then
+      functions[_cmux_fix_path]='emulate -L zsh
+setopt clobber
+'"${functions[_cmux_fix_path]}"
+    fi
   }
 fi
 
