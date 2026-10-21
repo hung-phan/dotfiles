@@ -16,6 +16,7 @@ npx skills add coreyhaines31/marketingskills -g --skill content-strategy
 npx skills add coreyhaines31/marketingskills -g --skill copywriting
 npx skills add kunchenguid/lavish-axi -g --skill lavish
 npx skills add openclaw/openclaw -g --skill tmux
+npx skills add manaflow-ai/cmux -g --skill cmux-browser
 
 uv tool install "graphifyy[mcp]"
 graphify install
