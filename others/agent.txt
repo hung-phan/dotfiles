@@ -18,3 +18,7 @@ npx skills add manaflow-ai/cmux -g --skill cmux-browser
 
 uv tool install "graphifyy[mcp]"
 graphify install
+
+brew install rtk
+rtk init -g
+rtk init -g --codex
