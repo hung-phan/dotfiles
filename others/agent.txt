@@ -1,6 +1,9 @@
 /plugin marketplace add DietrichGebert/ponytail
 /plugin install ponytail@ponytail
 
+/plugin marketplace add scasella/claude-flightdeck
+/plugin install flightdeck@claude-flightdeck
+
 claude plugin install mattpocock-skills@claude-plugins-official
 
 codex plugin marketplace add DietrichGebert/ponytail
