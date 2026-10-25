@@ -6,11 +6,17 @@
 
 claude plugin install mattpocock-skills@claude-plugins-official
 
+claude plugin marketplace add google/elephant-goldfish-model && \
+claude plugin install egm@egm
+
 codex plugin marketplace add DietrichGebert/ponytail
 codex plugin add ponytail@ponytail
 
 codex plugin marketplace add mattpocock/skills
 codex plugin add mattpocock-skills@mattpocock
+
+codex plugin marketplace add google/elephant-goldfish-model && \
+codex plugin add egm@egm
 
 npx skills add tt-a1i/archify -g
 npx skills add coreyhaines31/marketingskills -g --skill content-strategy
