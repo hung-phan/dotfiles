@@ -25,9 +25,6 @@ npx skills add kunchenguid/lavish-axi -g --skill lavish
 npx skills add openclaw/openclaw -g --skill tmux
 npx skills add manaflow-ai/cmux -g --skill cmux-browser
 
-uv tool install "graphifyy[mcp]"
-graphify install
-
 brew install rtk
 rtk init -g
 rtk init -g --codex
